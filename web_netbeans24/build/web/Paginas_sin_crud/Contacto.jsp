@@ -98,7 +98,7 @@
 </nav>
 
 <div class="container contact-section">
-    <h2 class="h2 text-center">Contáctanos</h2>
+    <h2 class="h2 text-center">Contáctanos oye causa</h2>
     <p class="text-center mb-4">
         Si tienes alguna pregunta o comentario, escríbenos.
     </p>
