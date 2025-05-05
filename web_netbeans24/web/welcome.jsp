@@ -18,7 +18,7 @@
     
     <%@ include file="INCLUDE/header_cliente.jsp" %>
 
-    <h1>Hello footer!</h1>
+    <h1>Hello everyone!</h1>
 
     <%@ include file="INCLUDE/footer.jsp" %>
 
