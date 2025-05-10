@@ -1,11 +1,3 @@
-<%-- 
-    Document   : header_cliente
-    Created on : 1 may. 2025, 03:23:48
-    Author     : DIEGO DAMIAN
---%>
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,9 +31,7 @@
                         <li><a class="dropdown-item" href="../htmls/Diseño_y_Construccion_3D_BIM.html">Saneamiento Físico Legal de Predios</a></li>
                         <li><a class="dropdown-item" href="../htmls/Proyectos_Inmobiliarios.html">Diseño y Construcción 3D ? BIM</a></li>
                         <li><a class="dropdown-item" href="../htmls/Saneamiento_Fisico_Legal_de_Predios.html">Construcción de Obras Civiles</a></li>
-                        <li><a class="dropdown-item" href="../htmls/Topografía.html">Topografía</a></li>
-                        
-                   
+                        <li><a class="dropdown-item" href="../htmls/Topografía.html">Topografía</a></li>                                          
                     </ul>
                 </li>
                 

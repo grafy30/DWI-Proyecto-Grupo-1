@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Spartan';
+}
+h1{
+    font-size: 50px;
+    line-height: 64px;
+    color: #222;
+}
+h2{
+    font-size: 46px;
+    line-height: 54px;
+    color: #222;
+}
+h4{
+    font-size: 20px;
+    color: #222;
+}
+h6{
+    font-weight: 700;
+    font-size: 12px;
+}
+p{
+    font-size: 16px;  
+    color: #465b52;
+    margin: 15px 0 20px 0;
+}
+.section-p1{
+    padding: 40px 80px;
+}
+.section-m1{
+    margin: 40px 0;
+}
+body{
+    width: 100%
+}
+body #Action_bar{    
+    background-color: #94cc41;
+}
+/* Nav*/
+#templatemo_main_nav a {
+    color: #141619;
+}
+/*Slides*/
+
+#hero-carousel {
+     /* Ajusta según necesites */    
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 5% right 0;
+    
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;  
+    justify-content: center ;
+}
+
+#hero-carousel .carousel-inner {
+    height: 100%;
+}
+
+#hero-carousel .carousel-item img {
+    object-fit: cover;
+    height: 100%;
+    min-height: 400px;
+}
+
+#hero-carousel .carousel-caption {
+    bottom: 20%;
+    text-align: left;
+    left: 10%;
+    right: 50%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+#hero-carousel .carousel-caption h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#hero-carousel .carousel-caption p {
+    font-size: 1.2rem;
+    color: #eee;
+}
+
+@media (max-width: 768px) {
+    #hero-carousel .carousel-caption {
+        bottom: 10%;
+        left: 5%;
+        right: 5%;
+    }
+    
+    #hero-carousel .carousel-caption h2 {
+        font-size: 1.8rem;
+    }
+    
+    #hero-carousel .carousel-caption p {
+        font-size: 1rem;
+    }
+}
+
+/*Footer*/
+.fond{
+    background-color: #212934;
+}
+
+/*Nosotros*/
+.contenedor {
+    width: 80%;
+    margin: 0 auto;
+}
+.contenido-nosotros {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.contenedor h1 {
+    text-align: center;
+}
+.texto-nosotros blockquote {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0066cc;
+    text-align: center;
+}
+.imagen {
+    width: 50%;
+}
+.imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.box-nosotros {
+    width: 45%;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.texto-nosotros {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+.texto-nosotros blockquote {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0066cc;
+}
+.texto-nosotros span {
+    font-size: 1em;
+    color: #444;
+}
+.content-sau {
+    background: #f4f4f4;
+    padding: 40px 0;
+}
+.titulo-muestra {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #333;
+}
+.contenedor-anuncios {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.anuncio {
+    width: 30%;
+    margin: 20px 0;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.anuncio img {
+    width: 100%;
+    height: auto;
+}
+.contenido-anuncio {
+    padding: 20px;
+}
+.contenido-anuncio h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+.contenido-anuncio .precio {
+    font-size: 1.2em;
+    color: #0066cc;
+    margin-bottom: 15px;
+}
+.boton {
+    display: inline-block;
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.boton:hover {
+    background-color: #004d99;
+}
+
+/* Login */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 150px); /* Ajusta según la altura de tu header/footer */
+    padding: 40px 20px;
+    margin: 0 auto;
+}
+.card-form {
+    background-color: #212934;
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    color: white;
+    box-shadow: 0px 0px 20px #3763a6;
+    margin: 20px 0; 
+}
+.card-form h3{
+    color: white;
+}
+.form-label { 
+    color: #ffffff; 
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px !important;
+    font-weight: 300 !important;
+}
+.form-control {
+    background-color: #fff;
+    border: 1px solid #212934;
+    color: #141619;
+}
+.form-control:focus {
+    background-color: #fff;
+    color: #141619;
+}
+.btn-submit {
+    background-color: #59ab6e;
+    border: none;
+    width: 100%;
+}
+.btn-submit:hover {
+    background-color: #e6004c;
+}
+.register-link {
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+}
+.alert {
+    margin-bottom: 15px;
+}
