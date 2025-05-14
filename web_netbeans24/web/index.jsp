@@ -5,6 +5,10 @@
         <title>Arqui Peru</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="js/bootstrap.bundle.min.js"></script>
+        <link rel="apple-touch-icon" sizes="180x180" href="imagenes/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="imagenes/favicon_io/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
     </head>
     <body>   
     <%@ include file="INCLUDE/header.jsp" %>

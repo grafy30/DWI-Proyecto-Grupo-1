@@ -1,40 +1,39 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DataAccessObject;
-
-/**
- *
- * @author DIEGO DAMIAN
- */
-
-
-
-
-import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
+import java.sql.Connection;
 
 public class ConexionMySQL {
-
-    private final String url = "jdbc:mysql://localhost:3306/arquitectura";
-    private final String user = "root";
-    private final String password = "";
+    private String StrConxMySQL="jdbc:mysql://localhost:3306/gestion_proyectos";
+    private String StrUserMySQL="root";
+    private String StrPassMySQL="Primavera123#";
+    private Connection conexion; //Null
+    
+    public static void main(String [] args){
+        ConexionMySQL cn = new ConexionMySQL();
+    }
+    
+    public ConexionMySQL() {
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+            DriverManager.setLoginTimeout(300);
+            //Creacion 
+            conexion = DriverManager
+                    .getConnection(StrConxMySQL, StrUserMySQL, StrPassMySQL);
+            if(conexion != null){
+                DatabaseMetaData dm = conexion.getMetaData();
+                System.out.println("Product Name:" + dm.getDatabaseProductName());
+                System.out.println("Product version:" + dm.getDatabaseProductVersion());
+            }
+        }catch(ClassNotFoundException | SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
 
     public Connection getConexion() {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(url, user, password);
-            System.out.println(" Conectado exitosamente a MySQL.");
-            return conn;
-        } catch (ClassNotFoundException e) {
-            System.err.println(" Error: Driver JDBC no encontrado.");
-            e.printStackTrace();
-        } catch (SQLException e) {
-            System.err.println(" Error de conexión a MySQL:");
-            e.printStackTrace();
-        }
-        return null;
+        return conexion;
     }
+    
 }

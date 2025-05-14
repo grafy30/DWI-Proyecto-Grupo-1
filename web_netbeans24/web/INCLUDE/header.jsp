@@ -9,6 +9,10 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">        
         <link rel="stylesheet" href="css/templatemo.css">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="imagenes/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="imagenes/favicon_io/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
     </head>
     <body>
             <!-- Start Top Nav -->
@@ -55,17 +59,22 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="${pageContext.request.contextPath}/Paginas_sin_crud/Nosotros.jsp">Nosotros</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/Paginas_sin_crud/Servicios.jsp">Servicios</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="${pageContext.request.contextPath}/Paginas_sin_crud/Servicios.jsp" id="serviciosDropdown" role="button"
+                                    accesskey=""data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
+                                <ul class="dropdown-menu" aria-labelledby="serviciosDropdown">
+                                    <li><a class="dropdown-item" href="../htmls/Construcción_de_Obras_Civiles.html">Proyectos Inmobiliarios</a></li>
+                                    <li><a class="dropdown-item" href="../htmls/Diseño_y_Construccion_3D_BIM.html">Saneamiento Físico Legal de Predios</a></li>
+                                    <li><a class="dropdown-item" href="../htmls/Proyectos_Inmobiliarios.html">Diseño y Construcción 3D ? BIM</a></li>
+                                    <li><a class="dropdown-item" href="../htmls/Saneamiento_Fisico_Legal_de_Predios.html">Construcción de Obras Civiles</a></li>
+                                    <li><a class="dropdown-item" href="../htmls/Topografía.html">Topografía</a></li>
+                                </ul>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="${pageContext.request.contextPath}/Paginas_sin_crud/Proyectos.jsp">Proyectos</a>
+                            </li>                            
                             <li class="nav-item">
                                 <a class="nav-link" href="${pageContext.request.contextPath}/Paginas_sin_crud/Contacto.jsp">Contacto</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Proyectos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Articulos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>

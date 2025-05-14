@@ -37,18 +37,16 @@
                     <div class="col-md-4 pt-5">
                         <h2 class="h2 text-light border-bottom pb-3 border-light">Servicios</h2>
                         <ul class="list-unstyled text-light footer-link-list">
-                            <li><a class="text-decoration-none" href="#">Carpinteria</a></li>
-                            <li><a class="text-decoration-none" href="#">Pintura</a></li>
-                            <li><a class="text-decoration-none" href="#">Arquitectura</a></li>
-                            <li><a class="text-decoration-none" href="#">Diseño de interiores</a></li>
-                            <li><a class="text-decoration-none" href="#">Electricidad</a></li>
-                            <li><a class="text-decoration-none" href="#">Gasfiteria</a></li>
-                            <li><a class="text-decoration-none" href="#">Otros</a></li>
+                            <li><a class="text-decoration-none" href="#">Proyectos Inmobiliarios</a></li>
+                            <li><a class="text-decoration-none" href="#">Saneamiento Fiscal</a></li>
+                            <li><a class="text-decoration-none" href="#">Diseño y Construcción 3D</a></li>
+                            <li><a class="text-decoration-none" href="#">Construcción de Obras Civiles</a></li>
+                            <li><a class="text-decoration-none" href="#">Topografía</a></li>                          
                         </ul>
                     </div>
 
                     <div class="col-md-4 pt-5">
-                        <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
+                        <h2 class="h2 text-light border-bottom pb-3 border-light">Menu Info</h2>
                         <ul class="list-unstyled text-light footer-link-list">
                             <li><a class="text-decoration-none" href="${pageContext.request.contextPath}/index.jsp">Inicio</a></li>
                             <li><a class="text-decoration-none" href="${pageContext.request.contextPath}/Paginas_sin_crud/Nosotros.jsp">Nosotros</a></li>
