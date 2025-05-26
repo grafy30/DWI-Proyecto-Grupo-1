@@ -17,7 +17,7 @@
         <link rel="manifest" href="/site.webmanifest">
         <link rel="stylesheet" href="../css/style.css">
     </head>
-
+    <body>
     <jsp:include page="../INCLUDE/header.jsp"/>   
         <section class="contactanos">
           <h1>Contactanos</h1>
@@ -63,8 +63,8 @@
         <!-- Popup -->
         <div id="popup" class="popup">
             <p>Mensaje Enviado</p>
-        </div>
-
+        </div>        
+    
         <!-- Mostrar popup si ?enviado=true -->
         <%
             String enviado = request.getParameter("enviado");
@@ -79,6 +79,7 @@
         </script>
         <% } %>
 
-<jsp:include page="../INCLUDE/footer.jsp" />
+    <jsp:include page="../INCLUDE/footer.jsp" />
+    </body>
 
 </html>

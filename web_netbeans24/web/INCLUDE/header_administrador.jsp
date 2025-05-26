@@ -1,17 +1,17 @@
-<%-- 
-    Document   : header_administrador
-    Created on : 1 may. 2025, 03:24:28
-    Author     : DIEGO DAMIAN
---%>
-
-
 <!DOCTYPE html>
 <html>
     <head>
         
-        <title>Panel de Administrador</title>
+        <title>Arqui-Peru</title>
         <!-- Bootstrap 5 CSS CDN -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">        
+        <link rel="stylesheet" href="css/templatemo.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="imagenes/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="imagenes/favicon_io/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest"> 
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -27,20 +27,19 @@
 
                 <div class="collapse navbar-collapse" id="adminNavbar">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                        <!-- Carrusel -->
+                        <!-- Clientes -->
                         <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/admin_carrusel.jsp">CARRUSEL</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/admin_clientes.jsp">CLIENTES</a>
                         </li>
 
-                        <!-- Categorías -->
+                        <!-- Servicios -->
                         <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/admin_categorias.jsp">CATEGORÍA</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/admin_servicios.jsp">SERVICIOS</a>
                         </li>
 
-                        <!-- Roles -->
+                        <!-- Proyectos -->
                         <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/admin_roles.jsp">ROLES</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/admin_proyectos.jsp">PROYECTOS</a>
                         </li>
 
                         <!-- Solicitudes -->
@@ -70,7 +69,6 @@
 
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <jsp:include page="../INCLUDE/footer.jsp" />
     </body>
 </html>
 

@@ -11,7 +11,8 @@
         <link rel="manifest" href="/site.webmanifest">
     </head>
     <body>   
-    <%@ include file="INCLUDE/header.jsp" %>
+    
+    <jsp:include page="INCLUDE/header.jsp"/>   
         <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000" data-bs-pause="hover">
             <!-- Indicadores -->
             <ol class="carousel-indicators">

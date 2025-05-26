@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.sql.Connection;
 
 public class ConexionMySQL {
-    private String StrConxMySQL="jdbc:mysql://localhost:3306/gestion_proyectos";
+    private String StrConxMySQL="jdbc:mysql://localhost:3306/consultoria_arquitectura";
     private String StrUserMySQL="root";
     private String StrPassMySQL="Primavera123#";
     private Connection conexion; //Null

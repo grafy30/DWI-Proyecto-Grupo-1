@@ -33,7 +33,7 @@
                             if (conn == null) {
                                 mensaje = " No se pudo conectar a la base de datos.";
                             } else {
-                                String sql = "SELECT id_usuario, rol FROM usuario WHERE usuario = ? AND password = ?";
+                                String sql = "SELECT id_usuario, rol FROM usuarios WHERE nickname = ? AND password = ?";
                                 PreparedStatement ps = conn.prepareStatement(sql);
                                 ps.setString(1, username);
                                 ps.setString(2, password);
@@ -48,7 +48,7 @@
                                     sesion.setAttribute("rol", rol);
 
                                     if ("Administrador".equalsIgnoreCase(rol)) {
-                                        response.sendRedirect("INCLUDE/header_administrador.jsp");
+                                        response.sendRedirect("welcome_administrador.jsp");
                                         return;
                                     } else if ("Usuario".equalsIgnoreCase(rol)) {
                                         response.sendRedirect("INCLUDE/header_usuario.jsp");

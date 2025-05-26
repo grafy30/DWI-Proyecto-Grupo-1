@@ -63,11 +63,11 @@
                                 <a class="nav-link dropdown-toggle" href="${pageContext.request.contextPath}/Paginas_sin_crud/Servicios.jsp" id="serviciosDropdown" role="button"
                                     accesskey=""data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
                                 <ul class="dropdown-menu" aria-labelledby="serviciosDropdown">
-                                    <li><a class="dropdown-item" href="../htmls/Construcción_de_Obras_Civiles.html">Proyectos Inmobiliarios</a></li>
-                                    <li><a class="dropdown-item" href="../htmls/Diseño_y_Construccion_3D_BIM.html">Saneamiento Físico Legal de Predios</a></li>
-                                    <li><a class="dropdown-item" href="../htmls/Proyectos_Inmobiliarios.html">Diseño y Construcción 3D ? BIM</a></li>
-                                    <li><a class="dropdown-item" href="../htmls/Saneamiento_Fisico_Legal_de_Predios.html">Construcción de Obras Civiles</a></li>
-                                    <li><a class="dropdown-item" href="../htmls/Topografía.html">Topografía</a></li>
+                                    <li><a class="dropdown-item" href="../htmls/Construcción_de_Obras_Civiles.html">Asesoría en Diseño de Pequeños Espacios</a></li>
+                                    <li><a class="dropdown-item" href="../htmls/Diseño_y_Construccion_3D_BIM.html">Tramitación de Licencias Municipales</a></li>
+                                    <li><a class="dropdown-item" href="../htmls/Proyectos_Inmobiliarios.html">Consultoría en Eficiencia Energética</a></li>
+                                    <li><a class="dropdown-item" href="../htmls/Saneamiento_Fisico_Legal_de_Predios.html"> Diseño de Fachadas y Home Staging</a></li>
+                                    <li><a class="dropdown-item" href="../htmls/Topografía.html">Consultoría para la selección de materiales y acabados</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">

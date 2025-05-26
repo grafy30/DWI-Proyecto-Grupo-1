@@ -4,8 +4,10 @@ public class ClientesBE {
     private String nombre;
     private String direccion;
     private String telefono;
+    private String empresa;
     private String correo;
     private String tipo;
+    private String fecha_registro;
     
     //Constructor
     public ClientesBE() {
@@ -53,11 +55,29 @@ public class ClientesBE {
         this.correo = correo;
     }
 
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
+    }
+    
     public String getTipo() {
         return tipo;
     }
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }      
+    }
+
+    public String getFecha_registro() {
+        return fecha_registro;
+    }
+
+    public void setFecha_registro(String fecha_registro) {
+        this.fecha_registro = fecha_registro;
+    }
+    
+
 }
