@@ -1,6 +1,7 @@
 package BusinessEntify;
 public class ClientesBE {
     private int id_cliente;
+    private int id_usuario;
     private String nombre;
     private String direccion;
     private String telefono;
@@ -78,6 +79,12 @@ public class ClientesBE {
     public void setFecha_registro(String fecha_registro) {
         this.fecha_registro = fecha_registro;
     }
-    
 
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }   
 }

@@ -1,39 +1,40 @@
 package DataAccessObject;
-import java.sql.DriverManager;
-import java.sql.DatabaseMetaData;
-import java.sql.SQLException;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class ConexionMySQL {
-    private String StrConxMySQL="jdbc:mysql://localhost:3306/consultoria_arquitectura";
-    private String StrUserMySQL="root";
-    private String StrPassMySQL="Primavera123#";
-    private Connection conexion; //Null
-    
-    public static void main(String [] args){
-        ConexionMySQL cn = new ConexionMySQL();
-    }
-    
+    private final String URL = "jdbc:mysql://localhost:3306/consultoria_arquitectura?useUnicode=true&characterEncoding=utf8";
+    private final String USER = "root";
+    private final String PASS = "Primavera123#";
+
     public ConexionMySQL() {
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            DriverManager.setLoginTimeout(300);
-            //Creacion 
-            conexion = DriverManager
-                    .getConnection(StrConxMySQL, StrUserMySQL, StrPassMySQL);
-            if(conexion != null){
-                DatabaseMetaData dm = conexion.getMetaData();
-                System.out.println("Product Name:" + dm.getDatabaseProductName());
-                System.out.println("Product version:" + dm.getDatabaseProductVersion());
-            }
-        }catch(ClassNotFoundException | SQLException e){
-            System.out.println(e.getMessage());
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver"); // Solo necesario una vez
+        } catch (ClassNotFoundException e) {
+            System.out.println("No se encontró el driver MySQL: " + e.getMessage());
         }
     }
 
+    // Cada vez que se llama, retorna una nueva conexión (¡mejor para web!)
     public Connection getConexion() {
-        return conexion;
+        try {
+            return DriverManager.getConnection(URL, USER, PASS);
+        } catch (SQLException e) {
+            System.out.println("Error al obtener conexión MySQL: " + e.getMessage());
+            return null;
+        }
     }
-    
+
+    // Para pruebas directas desde main:
+    public static void main(String[] args) {
+        ConexionMySQL con = new ConexionMySQL();
+        Connection c = con.getConexion();
+        if (c != null) {
+            System.out.println("¡Conexión exitosa!");
+            try { c.close(); } catch (SQLException e) { }
+        } else {
+            System.out.println("Fallo al conectar.");
+        }
+    }
 }

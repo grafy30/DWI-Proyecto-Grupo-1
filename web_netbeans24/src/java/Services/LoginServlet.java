@@ -1,8 +1,8 @@
 package Services;
 
-import DataAccessObject.ConexionMySQL;
+import BusinessEntify.UsuariosBE;
+import DataAccessObject.UsuarioDAO;
 import java.io.IOException;
-import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.annotation.WebServlet;
@@ -12,28 +12,27 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String usuario = request.getParameter("usuario");
+        System.out.println("Parámetro username recibido: " + request.getParameter("username"));
+        System.out.println("Parámetro password recibido: " + request.getParameter("password"));
+        
+        String usuario = request.getParameter("username");
         String password = request.getParameter("password");
 
         try {
-            ConexionMySQL con = new ConexionMySQL();
-            Connection conexion = con.getConexion();
-            PreparedStatement pst = conexion.prepareStatement(
-                    "SELECT * FROM usuarios WHERE usuario=? AND password=?");
-            pst.setString(1, usuario);
-            pst.setString(2, password);
-            ResultSet rs = pst.executeQuery();
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            UsuariosBE user = usuarioDAO.login(usuario, password);
 
-            if (rs.next()) {
-                String rol = rs.getString("rol");
+            if (user != null) {
                 HttpSession session = request.getSession();
-                session.setAttribute("usuario", usuario);
-                session.setAttribute("rol", rol);
+                session.setAttribute("usuario", user.getUsuario());
+                session.setAttribute("rol", user.getRol());
+                session.setAttribute("id_usuario", user.getId_usuario());
 
-                if ("Administrador".equalsIgnoreCase(rol)) {
+                if ("Administrador".equalsIgnoreCase(user.getRol())) {
                     response.sendRedirect("INCLUDE/header_administrador.jsp");
                 } else {
                     response.sendRedirect("INCLUDE/header_cliente.jsp");
@@ -41,8 +40,6 @@ public class LoginServlet extends HttpServlet {
             } else {
                 response.sendRedirect("login.jsp?error=1");
             }
-
-            conexion.close();
 
         } catch (Exception e) {
             e.printStackTrace();
