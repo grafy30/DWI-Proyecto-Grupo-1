@@ -1,5 +1,4 @@
 package Services;
-
 import BusinessEntify.UsuariosBE;
 import DataAccessObject.UsuarioDAO;
 import java.io.IOException;
@@ -33,7 +32,7 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("id_usuario", user.getId_usuario());
 
                 if ("Administrador".equalsIgnoreCase(user.getRol())) {
-                    response.sendRedirect("INCLUDE/header_administrador.jsp");
+                    response.sendRedirect("welcome_administrador.jsp");
                 } else {
                     response.sendRedirect("INCLUDE/header_cliente.jsp");
                 }

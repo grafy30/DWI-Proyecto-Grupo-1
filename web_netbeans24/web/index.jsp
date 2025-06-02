@@ -3,17 +3,11 @@
 <html>
     <head>
         <title>Arqui Peru</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <link rel="apple-touch-icon" sizes="180x180" href="imagenes/favicon_io/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon_io/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="imagenes/favicon_io/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
+        <%@ include file="INCLUDE/header_links.jsp" %>
     </head>
-    <body>   
-    
-    <jsp:include page="INCLUDE/header.jsp"/>   
-        <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000" data-bs-pause="hover">
+    <body>            
+        <%@ include file="INCLUDE/header.jsp" %>
+        <div id="hero-carousel" class="carousel slide">
             <!-- Indicadores -->
             <ol class="carousel-indicators">
                 <li data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active"></li>
@@ -66,8 +60,9 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Siguiente</span>
             </a>
-    </div>
-    <%@ include file="INCLUDE/footer.jsp" %>
-    <script src="js/script.js"></script>
-</body>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <%@ include file="INCLUDE/footer.jsp" %>             
+        <script src="js/script.js"></script>
+    </body>
 </html>

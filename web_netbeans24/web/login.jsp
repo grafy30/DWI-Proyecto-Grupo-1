@@ -4,15 +4,10 @@
     <head>
         <meta charset="UTF-8">
         <title>Arqui Peru - Login</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="apple-touch-icon" sizes="180x180" href="imagenes/favicon_io/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon_io/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="imagenes/favicon_io/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <%@ include file="INCLUDE/header_links.jsp" %>
     </head>
     <body>
-        <%@ include file="INCLUDE/header.jsp" %>
+        <%@ include file="INCLUDE/header.jsp" %>        
         <div class="form-container">
             <div class="card-form">
                 <h3 class="text-center mb-4">Iniciar Sesión</h3>
@@ -42,11 +37,11 @@
                                     ps.setString(2, password);
                                     ResultSet rs = ps.executeQuery();
 
-                                    if (rs.next()) {                                       
+                                    if (rs.next()) {
                                         int id_usuario = rs.getInt("id_usuario");
                                         String rol = rs.getString("rol");
 
-                                        HttpSession sesion   = request.getSession();
+                                        HttpSession sesion = request.getSession();
                                         sesion.setAttribute("id_usuario", id_usuario); // <-- Usa este nombre
                                         sesion.setAttribute("rol", rol);
 
@@ -99,7 +94,8 @@
                 </form>
                 <a href="registrar.jsp" class="register-link">¿No tienes cuenta? Regístrate</a>
             </div>
-        </div>    
+        </div>                
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <%@ include file="INCLUDE/footer.jsp" %>
     </body>
 </html>

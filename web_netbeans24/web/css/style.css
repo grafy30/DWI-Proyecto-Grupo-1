@@ -15,6 +15,7 @@ h2{
     line-height: 54px;
     color: #222;
 }
+
 h4{
     font-size: 20px;
     color: #222;
@@ -106,6 +107,196 @@ body #Action_bar{
         font-size: 1rem;
     }
 }
+
+/* ===========================================
+   HERO CAROUSEL RESPONSIVE (para #hero-carousel)
+   =========================================== */
+
+/* 1. Estilos base (aplica a todos los tamaños) */
+#hero-carousel {
+    width: 100%;
+    background: #f5f5f5;
+    position: relative;
+    overflow: hidden;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+}
+#hero-carousel .carousel-inner {
+    width: 100%;
+    height: 100%;
+}
+#hero-carousel .carousel-item {
+    position: relative;
+    text-align: center;
+    transition: height 0.3s;
+}
+#hero-carousel .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 0;    
+    margin: 0 auto;
+    min-height: 0;
+    background: #222;
+    /* Altura máxima cambia según pantalla */
+}
+
+#hero-carousel .carousel-caption {
+    position: absolute;
+    bottom: 15%;
+    left: 40%;
+    transform: translateX(-50%);
+    width: 90%;
+    padding: 1rem 1.5rem;
+    background: rgba(0,0,0,0.40);
+    border-radius: 12px;
+    color: #fff;
+    text-shadow: 1px 2px 10px #0008;
+    text-align: left;
+}
+
+#hero-carousel .carousel-caption h2 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #fff;
+}
+#hero-carousel .carousel-caption p {
+    font-size: 1.12rem;
+    color: #eee;
+}
+
+/* Flechas: centradas vertical, tamaño adaptable */
+#hero-carousel .carousel-control-prev,
+#hero-carousel .carousel-control-next {
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: auto;
+    width: 44px;
+    height: 44px;
+    background: rgba(0,0,0,0.22);
+    border-radius: 50%;
+    transition: background 0.3s;
+    z-index: 2;
+    opacity: 0.92;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#hero-carousel .carousel-control-prev:hover,
+#hero-carousel .carousel-control-next:hover {
+    background: rgba(0,0,0,0.5);
+    opacity: 1;
+}
+
+/* 2. Pantallas grandes (desktop ≥ 992px) */
+@media (min-width: 992px) {
+    #hero-carousel {
+        min-height: 600px;
+        max-height: 680px;
+    }
+    #hero-carousel .carousel-item img {
+        min-height: 400px;
+        max-height: 600px;
+    }
+    #hero-carousel .carousel-caption {
+        font-size: 1.3rem;
+        max-width: 650px;
+        bottom: 14%;
+        padding: 2rem 2.5rem;
+    }
+    #hero-carousel .carousel-caption h2 {
+        font-size: 2.6rem;
+    }
+    #hero-carousel .carousel-control-prev,
+    #hero-carousel .carousel-control-next {
+        width: 54px;
+        height: 54px;
+        font-size: 2.1rem;
+    }
+}
+
+/* Responsive: cambia la altura del carrusel según el tamaño de pantalla */
+@media (min-width: 1200px) {
+    #hero-carousel { height: 70vh; min-height: 480px; max-height: 900px; }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #hero-carousel { height: 60vh; min-height: 370px; max-height: 700px; }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+    #hero-carousel { height: 38vh; min-height: 210px; max-height: 400px; }
+}
+@media (max-width: 767.98px) {
+    #hero-carousel { height: 28vh; min-height: 120px; max-height: 250px; }
+}
+
+/* 3. Pantallas medianas (tablets, 768px - 991px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    #hero-carousel {
+        min-height: 320px;
+        max-height: 420px;
+    }
+    #hero-carousel .carousel-item img {
+        min-height: 210px;
+        max-height: 350px;
+    }
+    #hero-carousel .carousel-caption {
+        font-size: 1rem;
+        max-width: 420px;
+        bottom: 8%;
+        padding: 1.2rem 1.4rem;
+    }
+    #hero-carousel .carousel-caption h2 {
+        font-size: 1.8rem;
+    }
+    #hero-carousel .carousel-control-prev,
+    #hero-carousel .carousel-control-next {
+        width: 42px;
+        height: 42px;
+        font-size: 1.5rem;
+    }
+}
+
+/* 4. Pantallas pequeñas (celulares < 768px) */
+@media (max-width: 767.98px) {
+    #hero-carousel {
+        min-height: 140px;
+        max-height: 250px;
+    }
+    #hero-carousel .carousel-item img {
+        min-height: 120px;
+        max-height: 200px;
+    }
+    #hero-carousel .carousel-caption {
+        font-size: 0.92rem;
+        max-width: 97vw;
+        bottom: 2.5%;
+        padding: 0.5rem 0.5rem;
+        left: 50%;
+        right: 2vw;
+        text-align: center;
+    }
+    #hero-carousel .carousel-caption h2 {
+        font-size: 1.2rem;
+    }
+    #hero-carousel .carousel-control-prev,
+    #hero-carousel .carousel-control-next {
+        width: 32px;
+        height: 32px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Corrige posibles min-height heredados */
+#hero-carousel .carousel-item,
+#hero-carousel {
+    min-height: 0 !important;
+}
+
 
 /*Footer*/
 .fond{
@@ -267,4 +458,3 @@ body #Action_bar{
 .alert {
     margin-bottom: 15px;
 }
-

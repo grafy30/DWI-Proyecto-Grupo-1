@@ -3,12 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/src/java/Services/LoginServlet.java</file>
-            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/login.jsp</file>
-            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/src/java/BusinessEntify/UsuariosBE.java</file>
-            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/src/java/DataAccessObject/UsuarioDAO.java</file>
             <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/admin_clientes.jsp</file>
-            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/src/java/DataAccessObject/ConexionMySQL.java</file>
+            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/edit_clientes.jsp</file>
+            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/welcome_administrador.jsp</file>
+            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/login.jsp</file>
+            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/Proyectos.jsp</file>
+            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/INCLUDE/header_links.jsp</file>
+            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/Contacto.jsp</file>
+            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/INCLUDE/header_administrador.jsp</file>
+            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/INCLUDE/header.jsp</file>
+            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/INCLUDE/header_usuario.jsp</file>
+            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/INCLUDE/header_cliente.jsp</file>
+            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/index.jsp</file>
+            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/Servicios.jsp</file>
+            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/src/java/Services/LoginServlet.java</file>
+            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/INCLUDE/footer.jsp</file>
+            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/Nosotros.jsp</file>
         </group>
     </open-files>
 </project-private>
