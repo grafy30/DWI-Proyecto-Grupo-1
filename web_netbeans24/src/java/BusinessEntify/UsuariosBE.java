@@ -1,11 +1,12 @@
 package BusinessEntify;
-import java.util.Date;
+
 
 public class UsuariosBE {
     private int id_usuario;
+    private String nombres;
     private String usuario;
-    private String rol;
     private String password;
+    private String rol;
 
     // Constructor
       
@@ -44,6 +45,14 @@ public class UsuariosBE {
 
     public void setPassword(String password) {
         this.password = password;
-    }            
+    }    
+    
+    public String getNombres() {
+        return nombres; 
+    }
+    
+    public void setNombres(String nombres) {
+        this.nombres = nombres; 
+    } 
 }
 

@@ -1,0 +1,135 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 1 jun. 2025, 20:48:18
+    Author     : DIEGO DAMIAN
+*/
+
+/* Fondo en toda la vista */
+html, body {
+    height: 100%;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Contenedor principal */
+.contenedor {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* Contenido centrado y estilizado */
+.container {
+    background-color: #252525;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Título */
+h2.text-center {
+    color: #ffc107;
+    font-weight: 600;
+}
+
+/* Tabla oscura */
+table.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table.tabla th,
+table.tabla td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px;
+}
+
+table.tabla thead th {
+    background-color: #2c3e50;
+    color: #f9f9f9;
+    font-weight: bold;
+}
+
+table.tabla tbody td {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-bottom: 1px solid #444;
+}
+
+table.tabla tbody tr:hover td {
+    background-color: #333;
+}
+
+/* Botones con estilo pastel */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: #64b5f6;
+    border-color: #64b5f6;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #42a5f5;
+    border-color: #42a5f5;
+}
+
+.btn-danger {
+    background-color: #ef9a9a;
+    border-color: #ef9a9a;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #e57373;
+    border-color: #e57373;
+}
+
+/* Agrupación vertical de botones */
+.boton-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 200px;
+}
+
+/* Responsivo para móviles y tablets */
+@media (max-width: 768px) {
+    .tabla th, .tabla td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .boton-grupo {
+        width: 100%;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    h2.text-center {
+        font-size: 22px;
+    }
+}

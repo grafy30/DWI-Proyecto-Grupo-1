@@ -7,7 +7,7 @@
         </button>
 
         <!-- Logo / Inicio -->
-        <a class="navbar-brand" href="${pageContext.request.contextPath}/admin.jsp">Admin</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/listar_roles.jsp">Admin</a>
 
         <div class="collapse navbar-collapse" id="adminNavbar">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">

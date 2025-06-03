@@ -1,6 +1,6 @@
 package Services;
 import BusinessEntify.UsuariosBE;
-import DataAccessObject.UsuarioDAO;
+import DataAccessObject.UsuariosDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         try {
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            UsuariosDAO usuarioDAO = new UsuariosDAO();
             UsuariosBE user = usuarioDAO.login(usuario, password);
 
             if (user != null) {
