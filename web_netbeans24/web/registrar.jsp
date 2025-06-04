@@ -25,6 +25,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-submit">Registrarse</button>
+                    <a href="login.jsp" class="btn btn-secondary w-100 mt-2">Ir a Iniciar Sesión</a>
                 </form>
 
             </div>

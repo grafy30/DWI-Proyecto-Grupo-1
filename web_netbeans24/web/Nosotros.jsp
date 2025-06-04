@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -43,7 +44,7 @@
         <section class="nosotros">
             <div class="container">
                 <h1 class="display-4 fw-bold mb-4">Sobre Nosotros</h1>
-                <p class="lead text-white">25 años transformando espacios, creando hogares y diseñando el futuro</p>
+                <p class="lead text-white">25 aÃ±os transformando espacios, creando hogares y diseÃ±ando el futuro</p>
             </div>
         </section>
 
@@ -51,9 +52,9 @@
         <section class="container mb-5">
             <div class="row justify-content-center mt-5">
                 <div class="col-lg-10 text-center mb-5">
-                    <h2 class="display-5 fw-bold mb-4">¿Quiénes Somos?</h2>
+                    <h2 class="display-5 fw-bold mb-4">Â¿QuiÃ©nes Somos?</h2>
                     <p class="lead text-muted">
-                        Somos una compañía dedicada a brindar servicios de arquitectura con amplia experiencia y compromiso en el desarrollo de diseños y proyectos exclusivos, funcionales y de alta calidad.
+                        Somos una compaÃ±Ã­a dedicada a brindar servicios de arquitectura con amplia experiencia y compromiso en el desarrollo de diseÃ±os y proyectos exclusivos, funcionales y de alta calidad.
                     </p>
                 </div>
             </div>
@@ -64,9 +65,9 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="ps-lg-5">
-                        <h3 class="fw-bold mb-4">Arqui <span class="text-primary">Perú</span></h3>
+                        <h3 class="fw-bold mb-4">Arqui <span class="text-primary">PerÃº</span></h3>
                         <p class="mb-4">
-                            Empresa peruana con más de <span class="fw-bold text-primary">25 años de experiencia</span> en el sector de arquitectura, diseño y construcción. Nos apasiona crear espacios funcionales, estéticos y sostenibles, transformando ideas en proyectos que mejoran la calidad de vida.
+                            Empresa peruana con mÃ¡s de <span class="fw-bold text-primary">25 aÃ±os de experiencia</span> en el sector de arquitectura, diseÃ±o y construcciÃ³n. Nos apasiona crear espacios funcionales, estÃ©ticos y sostenibles, transformando ideas en proyectos que mejoran la calidad de vida.
                         </p>
 
                         <div class="d-flex align-items-start mb-4">
@@ -76,8 +77,8 @@
                                 </div>
                             </div>
                             <div class="flex-grow-1 ms-4">
-                                <h4 class="fw-bold">Nuestro Propósito</h4>
-                                <p>Inspirar y construir un Perú más moderno, humano y sostenible a través del diseño arquitectónico responsable y de calidad.</p>
+                                <h4 class="fw-bold">Nuestro PropÃ³sito</h4>
+                                <p>Inspirar y construir un PerÃº mÃ¡s moderno, humano y sostenible a travÃ©s del diseÃ±o arquitectÃ³nico responsable y de calidad.</p>
                             </div>
                         </div>
 
@@ -88,11 +89,11 @@
                                 </div>
                             </div>
                             <div class="flex-grow-1 ms-4">
-                                <h4 class="fw-bold">¿Qué nos diferencia?</h4>
+                                <h4 class="fw-bold">Â¿QuÃ© nos diferencia?</h4>
                                 <ul class="list-unstyled">
-                                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Atención personalizada y cercana</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> AtenciÃ³n personalizada y cercana</li>
                                     <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Creatividad y cumplimiento en cada proyecto</li>
-                                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Tecnologías modernas y procesos sostenibles</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> TecnologÃ­as modernas y procesos sostenibles</li>
                                     <li><i class="fas fa-check-circle text-primary me-2"></i> Experiencia en diversos tipos de proyectos</li>
                                 </ul>
                             </div>
@@ -102,12 +103,12 @@
             </div>
         </section>
 
-        <!-- Misión, Visión y Valores -->
+        <!-- MisiÃ³n, VisiÃ³n y Valores -->
         <section class="py-5 bg-light">
             <div class="container">
                 <div class="text-center mb-5">
                     <h2 class="display-5 fw-bold">Nuestros Pilares</h2>
-                    <p class="lead text-muted">Los fundamentos que guían nuestro trabajo</p>
+                    <p class="lead text-muted">Los fundamentos que guÃ­an nuestro trabajo</p>
                 </div>
 
                 <div class="row g-4">
@@ -117,9 +118,9 @@
                                 <div class="feature-icon">
                                     <i class="fas fa-bullseye"></i>
                                 </div>
-                                <h4 class="fw-bold mb-3">Misión</h4>
+                                <h4 class="fw-bold mb-3">MisiÃ³n</h4>
                                 <p class="text-muted">
-                                    Transformar ideas en espacios innovadores, funcionales y sostenibles, superando expectativas y contribuyendo al desarrollo urbano responsable en el Perú.
+                                    Transformar ideas en espacios innovadores, funcionales y sostenibles, superando expectativas y contribuyendo al desarrollo urbano responsable en el PerÃº.
                                 </p>
                             </div>
                         </div>
@@ -131,9 +132,9 @@
                                 <div class="feature-icon">
                                     <i class="fas fa-eye"></i>
                                 </div>
-                                <h4 class="fw-bold mb-3">Visión</h4>
+                                <h4 class="fw-bold mb-3">VisiÃ³n</h4>
                                 <p class="text-muted">
-                                    Ser la empresa de referencia en arquitectura y construcción a nivel nacional, reconocida por creatividad, calidad y capacidad de crear ambientes que inspiran.
+                                    Ser la empresa de referencia en arquitectura y construcciÃ³n a nivel nacional, reconocida por creatividad, calidad y capacidad de crear ambientes que inspiran.
                                 </p>
                             </div>
                         </div>
@@ -149,8 +150,8 @@
                                     <h4 class="fw-bold">Valores</h4>
                                 </div>
                                 <div class="value-item">
-                                    <h6 class="fw-bold">Innovación</h6>
-                                    <p class="small text-muted mb-0">Creamos soluciones únicas y modernas</p>
+                                    <h6 class="fw-bold">InnovaciÃ³n</h6>
+                                    <p class="small text-muted mb-0">Creamos soluciones Ãºnicas y modernas</p>
                                 </div>
                                 <div class="value-item">
                                     <h6 class="fw-bold">Compromiso</h6>
@@ -161,7 +162,7 @@
                                     <p class="small text-muted mb-0">Respetamos el entorno y los recursos</p>
                                 </div>
                                 <div class="value-item">
-                                    <h6 class="fw-bold">Ética</h6>
+                                    <h6 class="fw-bold">Ã‰tica</h6>
                                     <p class="small text-muted mb-0">Trabajamos con honestidad y responsabilidad</p>
                                 </div>
                             </div>
@@ -180,7 +181,7 @@
 
             <div class="row g-4 justify-content-center">
                 <!-- Miembro 1 -->
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2-4"> <!-- Clase personalizada añadida -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2-4"> <!-- Clase personalizada aÃ±adida -->
                     <div class="card border-0 shadow-sm text-center card-hover h-100">
                         <img src="${pageContext.request.contextPath}/imagenes/foto.jpg" class="card-img-top" alt="Arquitecto">
                         <div class="card-body">
@@ -215,7 +216,7 @@
                         <img src="https://via.placeholder.com/300" class="card-img-top" alt="Arquitecto">
                         <div class="card-body">
                             <h5 class="card-title fw-bold mb-1">Ana M.</h5>
-                            <p class="text-muted small mb-2">Diseñadora</p>
+                            <p class="text-muted small mb-2">DiseÃ±adora</p>
                             <div class="d-flex justify-content-center gap-2">
                                 <a href="#" class="text-primary"><i class="fab fa-linkedin"></i></a>
                                 <a href="#" class="text-primary"><i class="fas fa-envelope"></i></a>
@@ -265,13 +266,13 @@
                 }
             }
 
-            /* Ajustes para tarjetas más compactas */
+            /* Ajustes para tarjetas mÃ¡s compactas */
             .card {
-                min-width: 120px; /* Ancho mínimo para mantener legibilidad */
+                min-width: 120px; /* Ancho mÃ­nimo para mantener legibilidad */
             }
 
             .card-img-top {
-                height: 120px;
+                height: 60%;
                 object-fit: cover;
             }
 
@@ -290,8 +291,8 @@
 
         <section class="py-5 bg-light text-white">
             <div class="container text-center py-4">
-                <h2 class="display-6 fw-bold mb-4">¿Listo para comenzar tu proyecto?</h2>
-                <p class="lead mb-4">Contáctanos y hagamos realidad tus ideas</p>
+                <h2 class="display-6 fw-bold mb-4">Â¿Listo para comenzar tu proyecto?</h2>
+                <p class="lead mb-4">ContÃ¡ctanos y hagamos realidad tus ideas</p>
                 <a href="#" class="btn btn-success btn-lg px-4">Contactar Ahora</a>
             </div>
         </section>

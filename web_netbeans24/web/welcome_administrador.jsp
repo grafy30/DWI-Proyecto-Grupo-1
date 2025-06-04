@@ -6,10 +6,11 @@
     <head>    
         <title>Administrador</title>       
         <%@ include file="INCLUDE/header_links.jsp" %>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css">
     </head>
     <body>   
         <%@ include file="INCLUDE/header_administrador.jsp" %>
-        <section class="administrador text-center align-items-center ">
+        <section class="administrador text-center align-items-center mt-5">
             <h1>Bienvenido administrador</h1>
         </section>              
     </body>

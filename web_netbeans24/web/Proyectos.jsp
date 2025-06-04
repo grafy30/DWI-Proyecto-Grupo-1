@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -20,7 +21,7 @@
                 <div class="gallery-item">
                     <img src="imagenes/galeria/proyecto1.jpg" alt="Imagen 1">
                     <div class="overlay">
-                        <p class="description">Inspecci髇 segura en alturas.</p>
+                        <p class="description">Inspecci贸n segura en alturas.</p>
                         <div class="social-icons">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -34,63 +35,63 @@
                 <div class="gallery-item">
                     <img src="imagenes/galeria/proyecto2.jpg" alt="Imagen 2">
                     <div class="overlay">
-                        <p class="description">Supervisi髇 de obra en progreso.</p>
+                        <p class="description">Supervisi贸n de obra en progreso.</p>
                         <div class="social-icons">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <h2>Supervisi髇 T閏nica</h2>
+                    <h2>Supervisi贸n T茅cnica</h2>
                     <p>Controlamos cada etapa del proyecto para asegurar calidad y cumplimiento.</p>
                 </div>
 
                 <div class="gallery-item">
                     <img src="imagenes/galeria/proyecto3.jpg" alt="Imagen 3">
                     <div class="overlay">
-                        <p class="description">Direcci髇 de obra eficiente.</p>
+                        <p class="description">Direcci贸n de obra eficiente.</p>
                         <div class="social-icons">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <h2>Coordinaci髇 en Obra</h2>
-                    <p>Planificamos y dirigimos la ejecuci髇 de obras con eficiencia y precisi髇.</p>
+                    <h2>Coordinaci贸n en Obra</h2>
+                    <p>Planificamos y dirigimos la ejecuci贸n de obras con eficiencia y precisi贸n.</p>
                 </div>
 
                 <div class="gallery-item">
                     <img src="imagenes/galeria/proyecto4.jpg" alt="Imagen 4">
                     <div class="overlay">
-                        <p class="description">Revisi髇 de planos estructurales.</p>
+                        <p class="description">Revisi贸n de planos estructurales.</p>
                         <div class="social-icons">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <h2>Planificaci髇 T閏nica</h2>
-                    <p>Evaluamos planos y estrategias constructivas para una ejecuci髇 segura.</p>
+                    <h2>Planificaci贸n T茅cnica</h2>
+                    <p>Evaluamos planos y estrategias constructivas para una ejecuci贸n segura.</p>
                 </div>
 
                 <div class="gallery-item">
                     <img src="imagenes/galeria/proyecto5.jpg" alt="Imagen 5">
                     <div class="overlay">
-                        <p class="description">Gesti髇 de equipos de obra.</p>
+                        <p class="description">Gesti贸n de equipos de obra.</p>
                         <div class="social-icons">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <h2>Coordinaci髇 de Personal</h2>
+                    <h2>Coordinaci贸n de Personal</h2>
                     <p>Organizamos al equipo de trabajo para optimizar el rendimiento en campo.</p>
                 </div>
 
                 <div class="gallery-item">
                     <img src="imagenes/galeria/proyecto6.jpg" alt="Imagen 6">
                     <div class="overlay">
-                        <p class="description">Aplicaci髇 de acabados de obra.</p>
+                        <p class="description">Aplicaci贸n de acabados de obra.</p>
                         <div class="social-icons">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -104,14 +105,14 @@
                 <div class="gallery-item">
                     <img src="imagenes/galeria/proyecto7.jpg" alt="Imagen 7">
                     <div class="overlay">
-                        <p class="description">Instalaci髇 de sistemas el閏tricos y sanitarios.</p>
+                        <p class="description">Instalaci贸n de sistemas el茅ctricos y sanitarios.</p>
                         <div class="social-icons">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <h2>Instalaciones T閏nicas</h2>
+                    <h2>Instalaciones T茅cnicas</h2>
                     <p>Desarrollamos instalaciones funcionales con materiales certificados.</p>
                 </div>
 
@@ -126,13 +127,13 @@
                         </div>
                     </div>
                     <h2>Obras Viales</h2>
-                    <p>Ejecutamos proyectos urbanos como veredas, pistas y se馻lizaci髇.</p>
+                    <p>Ejecutamos proyectos urbanos como veredas, pistas y se帽alizaci贸n.</p>
                 </div>
 
                 <div class="gallery-item">
                     <img src="imagenes/galeria/proyecto9.jpg" alt="Imagen 9">
                     <div class="overlay">
-                        <p class="description">Refacci髇 de estructuras internas.</p>
+                        <p class="description">Refacci贸n de estructuras internas.</p>
                         <div class="social-icons">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -140,27 +141,27 @@
                         </div>
                     </div>
                     <h2>Reparaciones</h2>
-                    <p>Brindamos soluciones r醦idas y duraderas a estructuras deterioradas.</p>
+                    <p>Brindamos soluciones r谩pidas y duraderas a estructuras deterioradas.</p>
                 </div>
 
                 <div class="gallery-item">
                     <img src="imagenes/galeria/proyecto10.jpg" alt="Imagen 10">
                     <div class="overlay">
-                        <p class="description">Ambientes funcionales y est閠icos.</p>
+                        <p class="description">Ambientes funcionales y est茅ticos.</p>
                         <div class="social-icons">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <h2>Dise駉 Interior</h2>
+                    <h2>Dise帽o Interior</h2>
                     <p>Creamos espacios modernos adaptados al uso y comodidad del cliente.</p>
                 </div>
 
                 <div class="gallery-item">
                     <img src="imagenes/galeria/proyecto11.jpg" alt="Imagen 11">
                     <div class="overlay">
-                        <p class="description">Instalaci髇 de sistemas de control.</p>
+                        <p class="description">Instalaci贸n de sistemas de control.</p>
                         <div class="social-icons">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -168,7 +169,7 @@
                         </div>
                     </div>
                     <h2>Equipos Especializados</h2>
-                    <p>Contamos con tecnolog韆 moderna para garantizar la precisi髇 en cada obra.</p>
+                    <p>Contamos con tecnolog铆a moderna para garantizar la precisi贸n en cada obra.</p>
                 </div>
 
                 <div class="gallery-item">

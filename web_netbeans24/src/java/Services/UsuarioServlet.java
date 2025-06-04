@@ -21,7 +21,7 @@ public class UsuarioServlet extends HttpServlet {
         UsuariosBE user;
 
         if (id_usuario != null && !id_usuario.isEmpty()) {
-            user = logica.obtenerUsuarioPorId(id_usuario);
+            user = logica.Read(id_usuario);
         } else {
             user = new UsuariosBE();
         }
@@ -52,7 +52,7 @@ public class UsuarioServlet extends HttpServlet {
         boolean resultado;
 
         if ("registrar".equals(accion)) {
-            resultado = logica.registrarUsuario(user);
+            resultado = logica.Create(user);
 
             if (resultado) {
                 response.sendRedirect("login.jsp?mensaje=registrado");
@@ -65,9 +65,9 @@ public class UsuarioServlet extends HttpServlet {
         }
         if (id_usuario != null && !id_usuario.isEmpty()) {
             user.setId_usuario(Integer.parseInt(id_usuario));
-            resultado = logica.actualizarUsuario(user);
+            resultado = logica.Update(user);
         } else {
-            resultado = logica.registrarUsuario(user);
+            resultado = logica.Create(user);
         }
 
         if (resultado) {

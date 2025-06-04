@@ -147,17 +147,17 @@ body #Action_bar{
 }
 
 #hero-carousel .carousel-caption {
-    position: absolute;
-    bottom: 15%;
-    left: 40%;
-    transform: translateX(-50%);
-    width: 90%;
-    padding: 1rem 1.5rem;
-    background: rgba(0,0,0,0.40);
-    border-radius: 12px;
-    color: #fff;
-    text-shadow: 1px 2px 10px #0008;
-    text-align: left;
+    bottom: 35%;           /* Más elevado (ajusta el porcentaje según lo que desees) */
+    left: 8%;              /* Lo mueve a la izquierda */
+    right: auto;           /* Quita alineación centrada */
+    text-align: left;      /* Texto alineado a la izquierda */
+    transform: none;       /* Quita el centrado absoluto de Bootstrap */
+    width: auto;           /* Solo ocupa el espacio necesario */
+    max-width: 40vw;       /* Puedes ajustar el ancho si tienes mucho texto */
+    background: rgba(0,0,0,0.35); /* Fondo translúcido opcional para resaltar texto */
+    padding: 1.5rem 2rem;  /* Espaciado interno */
+    border-radius: 1rem;   /* Bordes suaves */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
 }
 
 #hero-carousel .carousel-caption h2 {
@@ -206,7 +206,7 @@ body #Action_bar{
     #hero-carousel .carousel-caption {
         font-size: 1.3rem;
         max-width: 650px;
-        bottom: 14%;
+        bottom: 43%;
         padding: 2rem 2.5rem;
     }
     #hero-carousel .carousel-caption h2 {
@@ -228,7 +228,7 @@ body #Action_bar{
     #hero-carousel { height: 60vh; min-height: 370px; max-height: 700px; }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
-    #hero-carousel { height: 38vh; min-height: 210px; max-height: 400px; }
+    #hero-carousel { height: 38vh; min-height: 220px; max-height: 400px; }
 }
 @media (max-width: 767.98px) {
     #hero-carousel { height: 28vh; min-height: 120px; max-height: 250px; }
@@ -241,8 +241,8 @@ body #Action_bar{
         max-height: 420px;
     }
     #hero-carousel .carousel-item img {
-        min-height: 210px;
-        max-height: 350px;
+        min-height: 220px;
+        max-height: 389px;
     }
     #hero-carousel .carousel-caption {
         font-size: 1rem;
@@ -269,7 +269,7 @@ body #Action_bar{
     }
     #hero-carousel .carousel-item img {
         min-height: 120px;
-        max-height: 200px;
+        max-height: 245px;
     }
     #hero-carousel .carousel-caption {
         font-size: 0.92rem;

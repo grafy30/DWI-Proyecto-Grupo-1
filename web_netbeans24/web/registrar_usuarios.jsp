@@ -9,9 +9,9 @@
     UsuariosBE usuario = null;
 
     if ("nuevo".equals(estado)) {
-        usuario = new UsuariosBE(); // Limpia los datos
+        usuario = new UsuariosBE();
     } else if (userId != null && !userId.isEmpty()) {
-        usuario = usuarioBL.obtenerUsuarioPorId(userId);  // ✅ ahora compatible con BL
+        usuario = usuarioBL.Read(userId);  
     } else {
         usuario = new UsuariosBE();
     }
@@ -31,7 +31,7 @@
             usuarioActualizado.setUsuario(usuarioNombre);
             usuarioActualizado.setPassword(password);
             usuarioActualizado.setRol(rol);
-            resultado = usuarioBL.actualizarUsuario(usuarioActualizado);
+            resultado = usuarioBL.Update(usuarioActualizado);
 
             response.sendRedirect("registrar_usuarios.jsp?estado=" + (resultado ? "editado" : "error"));
             return;
@@ -41,7 +41,7 @@
             nuevoUsuario.setUsuario(usuarioNombre);
             nuevoUsuario.setPassword(password);
             nuevoUsuario.setRol(rol);
-            resultado = usuarioBL.registrarUsuario(nuevoUsuario);
+            resultado = usuarioBL.Create(nuevoUsuario);
 
             response.sendRedirect("registrar_usuarios.jsp?estado=" + (resultado ? "registrado" : "error"));
             return;
@@ -53,108 +53,13 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <meta charset="UTF-8">
-        <title><%= (userId != null && !userId.isEmpty()) ? "Editar Usuario" : "Registrar Usuario"%></title>
-
-        <!-- Bootstrap CSS -->
+        <title><%= (userId != null && !userId.isEmpty()) ? "Editar Usuario" : "Registrar Usuario"%></title>      
+        <%@ include file="INCLUDE/header_links.jsp" %>        
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-        <style>
-            body {
-                padding-top: 70px; /* espacio para navbar fijo */
-                background: linear-gradient(to right, #f0f4ff, #ffffff);
-                min-height: 100vh;
-            }
-
-            .form-card {
-                background: white;
-                padding: 40px;
-                border-radius: 16px;
-                box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
-                max-width: 600px;
-                width: 100%;
-                margin: 0 auto;
-            }
-
-            .form-title {
-                font-weight: 600;
-                margin-bottom: 30px;
-                color: #2c3e50;
-                text-align: center;
-            }
-
-            .btn-custom {
-                background-color: #0d6efd;
-                color: white;
-                border-radius: 8px;
-                padding: 10px 20px;
-                transition: all 0.3s ease-in-out;
-            }
-
-            .btn-custom:hover {
-                background-color: #0a58ca;
-            }
-
-            .btn-outline {
-                border: 1px solid #0d6efd;
-                color: #0d6efd;
-                background: transparent;
-            }
-
-            .btn-outline:hover {
-                background-color: #0d6efd;
-                color: white;
-            }
-
-            .alert {
-                transition: opacity 0.5s ease-in-out;
-                border-radius: 10px;
-            }
-
-            .fade-out {
-                opacity: 0;
-                visibility: hidden;
-            }
-        </style>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css">
     </head>
     <body>
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="inicio.jsp">ADMINISTRADOR</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" 
-                        aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarMenu">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="listar_roles.jsp">ADMIN</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin_clientes.jsp">Clientes</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin_servicios.jsp">Servicios</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin_proyectos.jsp">Proyectos</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="logout.jsp">Cerrar Sesion</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
+        <%@ include file="INCLUDE/header_administrador.jsp" %>        
         <div class="container mt-4">
             <div class="form-card">
                 <% if ("registrado".equals(estado)) { %>
@@ -169,9 +74,8 @@
                     <%= (userId != null && !userId.isEmpty()) ? "Editar Usuario" : "Registrar Nuevo Usuario"%>
                 </h3>
 
-                <form method="post" action="UsuarioServlet" id="formularioUsuario">
-                    <input type="hidden" name="id_usuario" value="<%= userId != null ? userId : ""%>">
-                    <input type="hidden" name="accion" value="registrar">
+                <form method="post" action="registrar_usuarios.jsp" id="formularioUsuario">
+                    <input type="hidden" name="id_usuario" value="<%= userId != null ? userId : ""%>">                    
 
                     <div class="mb-3">
                         <label for="usuario" class="form-label">Usuario</label>
@@ -209,7 +113,7 @@
                             🧹 Limpiar Datos
                         </button>
 
-                        <a href="listar_roles.jsp" class="btn btn-outline">
+                        <a href="listar_usuarios.jsp" class="btn btn-outline">
                             👥 Ver Usuarios
                         </a>
                     </div>
@@ -234,9 +138,6 @@
                 document.querySelector('input[name="id_usuario"]').value = "";
             }
         </script>
-
-        <!-- Bootstrap JS Bundle -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
     </body>
 </html>

@@ -4,36 +4,41 @@ import BusinessEntify.UsuariosBE;
 import DataAccessObject.UsuariosDAO;
 import java.util.ArrayList;
 
-public class UsuariosBL {
+public class UsuariosBL implements IBaseBL<UsuariosBE>{
 
-    private final UsuariosDAO dao;
-
+    private final UsuariosDAO user;
+    
     public UsuariosBL() {
-        this.dao = new UsuariosDAO();
+        this.user = new UsuariosDAO();
+    }
+    
+    @Override
+    public boolean Create(UsuariosBE input) {
+        return user.Create(input);
     }
 
+    @Override
+    public UsuariosBE Read(String input) {
+        return user.Read(input);
+    }
+
+    @Override
+    public ArrayList<UsuariosBE> ReadAll() {
+        return user.ReadAll();
+    }
+
+    @Override
+    public boolean Update(UsuariosBE input) {
+        return user.Update(input);
+    }
+
+    @Override
+    public boolean Delete(String input) {
+        return user.Delete(input);
+    }    
+            
     public UsuariosBE login(String nickname, String password) {
-        return dao.login(nickname, password);
-    }
-
-    public boolean registrarUsuario(UsuariosBE nuevoUsuario) {
-        return dao.Create(nuevoUsuario);
-    }
-
-    public boolean actualizarUsuario(UsuariosBE usuario) {
-        return dao.Update(usuario);
-    }
-
-    public boolean eliminarUsuarioPorId(String id) {
-        return dao.Delete(id);
-    }
-
-    public UsuariosBE obtenerUsuarioPorId(String id) {
-        return dao.Read(id);
-    }
-
-    public ArrayList<UsuariosBE> obtenerTodosLosUsuarios() {
-        return dao.ReadAll();
+        return user.login(nickname, password);
     }
 }
     
