@@ -185,7 +185,7 @@
                     <div class="card border-0 shadow-sm text-center card-hover h-100">
                         <img src="${pageContext.request.contextPath}/imagenes/foto.jpg" class="card-img-top" alt="Arquitecto">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold mb-1">Wilson G.</h5>
+                            <h5 class="card-title fw-bold mb-1">Wilson Guzman A.</h5>
                             <p class="text-muted small mb-2">Software Engineer</p>
                             <div class="d-flex justify-content-center gap-2">
                                 <a href="#" class="text-primary"><i class="fab fa-linkedin"></i></a>
@@ -198,9 +198,9 @@
                 <!-- Miembro 2 -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2-4">
                     <div class="card border-0 shadow-sm text-center card-hover h-100">
-                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Arquitecto">
+                        <img src="${pageContext.request.contextPath}/imagenes/Juan.jpeg" class="card-img-top" alt="Arquitecto">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold mb-1">Juan P.</h5>
+                            <h5 class="card-title fw-bold mb-1">Juan Quiroz V.</h5>
                             <p class="text-muted small mb-2">Arquitecto</p>
                             <div class="d-flex justify-content-center gap-2">
                                 <a href="#" class="text-primary"><i class="fab fa-linkedin"></i></a>
@@ -213,9 +213,9 @@
                 <!-- Miembro 3 -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2-4">
                     <div class="card border-0 shadow-sm text-center card-hover h-100">
-                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Arquitecto">
+                        <img src="${pageContext.request.contextPath}/imagenes/Ana.jpeg" class="card-img-top" alt="Arquitecto">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold mb-1">Ana M.</h5>
+                            <h5 class="card-title fw-bold mb-1">Ana Perez V.</h5>
                             <p class="text-muted small mb-2">Diseñadora</p>
                             <div class="d-flex justify-content-center gap-2">
                                 <a href="#" class="text-primary"><i class="fab fa-linkedin"></i></a>
