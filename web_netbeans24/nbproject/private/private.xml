@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/listar_usuarios.jsp</file>
-            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/listar_clientes.jsp</file>
-            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/src/java/Services/ListaClientesPDFServlet.java</file>
-            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/registrar_usuarios.jsp</file>
-            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/src/java/Services/ClienteServlet.java</file>
-            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/registrar_clientes.jsp</file>
-            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/login.jsp</file>
-            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/welcome_administrador.jsp</file>
-            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/web/INCLUDE/header_administrador.jsp</file>
-            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/src/java/Services/ListaUsuariosPDFServlet.java</file>
-            <file>file:/E:/UNIVERSITY/UTP/Primer%20Ciclo%202025/Desarrollo%20Web%20Integrado/Proyecto/ATF2-GRUPO-1/web_netbeans24/src/java/Services/UsuarioServlet.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

@@ -183,7 +183,7 @@
                 <!-- Miembro 1 -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2-4"> <!-- Clase personalizada añadida -->
                     <div class="card border-0 shadow-sm text-center card-hover h-100">
-                        <img src="${pageContext.request.contextPath}/imagenes/foto.jpg" class="card-img-top" alt="Arquitecto">
+                        <img src="${pageContext.request.contextPath}/imagenes/Wilson.jpg" class="card-img-top" alt="Arquitecto">
                         <div class="card-body">
                             <h5 class="card-title fw-bold mb-1">Wilson Guzman A.</h5>
                             <p class="text-muted small mb-2">Software Engineer</p>
@@ -228,10 +228,10 @@
                 <!-- Miembro 4 -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2-4">
                     <div class="card border-0 shadow-sm text-center card-hover h-100">
-                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Arquitecto">
+                        <img src="${pageContext.request.contextPath}/imagenes/Favian.png" class="card-img-top" alt="Arquitecto">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold mb-1">Diego R.</h5>
-                            <p class="text-muted small mb-2">Ingeniero</p>
+                            <h5 class="card-title fw-bold mb-1">Favia Vigo M.</h5>
+                            <p class="text-muted small mb-2">Ingeniero de Sistemas</p>
                             <div class="d-flex justify-content-center gap-2">
                                 <a href="#" class="text-primary"><i class="fab fa-linkedin"></i></a>
                                 <a href="#" class="text-primary"><i class="fas fa-envelope"></i></a>
@@ -243,10 +243,10 @@
                 <!-- Miembro 5 -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2-4">
                     <div class="card border-0 shadow-sm text-center card-hover h-100">
-                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Arquitecto">
+                        <img src="${pageContext.request.contextPath}/imagenes/Diego.jpeg" class="card-img-top" alt="Arquitecto">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold mb-1">Favian T.</h5>
-                            <p class="text-muted small mb-2">Ingeniero</p>
+                            <h5 class="card-title fw-bold mb-1">Diego Huamani</h5>
+                            <p class="text-muted small mb-2">Desarrollador Web</p>
                             <div class="d-flex justify-content-center gap-2">
                                 <a href="#" class="text-primary"><i class="fab fa-linkedin"></i></a>
                                 <a href="#" class="text-primary"><i class="fas fa-envelope"></i></a>
@@ -293,7 +293,7 @@
             <div class="container text-center py-4">
                 <h2 class="display-6 fw-bold mb-4">¿Listo para comenzar tu proyecto?</h2>
                 <p class="lead mb-4">Contáctanos y hagamos realidad tus ideas</p>
-                <a href="#" class="btn btn-success btn-lg px-4">Contactar Ahora</a>
+                <a href="${pageContext.request.contextPath}/Contacto.jsp" class="btn btn-success btn-lg px-4">Contactar Ahora</a>
             </div>
         </section>
 

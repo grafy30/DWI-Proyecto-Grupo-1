@@ -1,79 +1,69 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Barra de Navegación</title>
-    <!-- Bootstrap 5 CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <!-- Botón hamburguesa -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Logo / Inicio -->
-        <a class="navbar-brand" href="${pageContext.request.contextPath}/login.jsp">INICIO</a>
-
-        <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                <!-- Servicios con submenú -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="serviciosDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        SERVICIOS
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="serviciosDropdown">
-                        <li><a class="dropdown-item" href="../htmls/Construcción_de_Obras_Civiles.html">Proyectos Inmobiliarios</a></li>
-                        <li><a class="dropdown-item" href="../htmls/Diseño_y_Construccion_3D_BIM.html">Saneamiento Físico Legal de Predios</a></li>
-                        <li><a class="dropdown-item" href="../htmls/Proyectos_Inmobiliarios.html">Diseño y Construcción 3D ? BIM</a></li>
-                        <li><a class="dropdown-item" href="../htmls/Saneamiento_Fisico_Legal_de_Predios.html">Construcción de Obras Civiles</a></li>
-                        <li><a class="dropdown-item" href="../htmls/Topografía.html">Topografía</a></li>                                          
-                    </ul>
-                </li>
-                
-                <!-- Otros enlaces principales -->
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/Paginas_sin_crud/Contacto.jsp">CONTACTO</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/Paginas_sin_crud/Nosotros.jsp">NOSOTROS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">PROYECTOS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">ARTÍCULOS</a>
-                </li>
-
-                <!-- Login simple que redirige al login.jsp -->
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/login.jsp">LOGIN</a>
-                </li>
-
-            </ul>
+<nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+    <div class="container text-light">
+        <div class="w-100 d-flex justify-content-between">
+            <div>
+                <i class="fa fa-envelope mx-2"></i>
+                <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                <i class="fa fa-phone mx-2"></i>
+                <a class="navbar-sm-brand text-light text-decoration-none" href="tel:+51 914088112">+51 914088112</a>
+            </div>
+            <div>
+                <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+            </div>
         </div>
     </div>
 </nav>
+<!-- Close Top Nav -->
 
-<!-- Bootstrap JS (Popper.js incluido) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- CSS opcional para submenú anidado (Bandeja de mensajes) -->
-<style>
-    .dropdown-submenu {
-        position: relative;
-    }
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light shadow">
+    <div class="container d-flex justify-content-between align-items-center">
 
-    .dropdown-submenu .dropdown-menu.dropdown-sub {
-        top: 0;
-        left: 100%;
-        margin-left: 0.1rem;
-        margin-right: 0.1rem;
-    }
-</style>
-</body>
-</html>
+        <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+            Arqui-Peru
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+            <div class="flex-fill">
+                <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/Nosotros.jsp">Nosotros</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="serviciosDropdown" role="button"
+                           accesskey="" data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
+                        <ul class="dropdown-menu" aria-labelledby="serviciosDropdown">
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Servicios.jsp"><strong>Ver todos los servicios</strong></a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../htmls/Construcción_de_Obras_Civiles.html">Asesoría en Diseño de Pequeños Espacios</a></li>
+                            <li><a class="dropdown-item" href="../htmls/Diseño_y_Construccion_3D_BIM.html">Tramitación de Licencias Municipales</a></li>
+                            <li><a class="dropdown-item" href="../htmls/Proyectos_Inmobiliarios.html">Consultoría en Eficiencia Energética</a></li>
+                            <li><a class="dropdown-item" href="../htmls/Saneamiento_Fisico_Legal_de_Predios.html"> Diseño de Fachadas y Home Staging</a></li>
+                            <li><a class="dropdown-item" href="../htmls/Topografía.html">Consultoría para la selección de materiales y acabados</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/Proyectos.jsp">Proyectos</a>
+                    </li>                            
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/Contacto.jsp">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
+                    </li>
+                </ul>
+            </div>                    
+        </div>
+    </div>
+</nav>
