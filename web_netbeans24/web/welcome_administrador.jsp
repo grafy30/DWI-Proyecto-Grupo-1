@@ -11,7 +11,7 @@
     <body>   
         <%@ include file="INCLUDE/header_administrador.jsp" %>
         <section class="administrador text-center align-items-center mt-5">
-            <h1>Bienvenido administrador</h1>
+            <h1>Bienvenido ADMIN</h1>
         </section>              
     </body>
     <!-- Scripts necesarios para Bootstrap para la hamburgesa-->
