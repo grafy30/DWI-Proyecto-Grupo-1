@@ -12,6 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>lista proyectosxxxx!</h1>
+        <h1>lista proyecto!</h1>
+        <h1>lista proyectoxxx!</h1>
     </body>
 </html>
