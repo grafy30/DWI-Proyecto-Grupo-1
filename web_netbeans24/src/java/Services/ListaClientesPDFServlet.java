@@ -53,7 +53,7 @@ public class ListaClientesPDFServlet extends HttpServlet {
                 tabla.addCell(crearCelda(cliente.getTelefono(), fontCelda));
                 tabla.addCell(crearCelda(cliente.getDireccion(), fontCelda));
                 tabla.addCell(crearCelda(cliente.getEmpresa(), fontCelda));
-                tabla.addCell(crearCelda(cliente.getTipo(), fontCelda));
+                tabla.addCell(crearCelda(cliente.getTipo_cliente(), fontCelda));
             }
 
             documento.add(tabla);

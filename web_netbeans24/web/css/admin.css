@@ -80,3 +80,48 @@
 .table-responsive {
     margin-bottom: 0;
 }
+
+/* BOTONES PERSONALIZADOS ADMIN */
+
+.btn-custom {
+    font-size: 1.08rem;
+    font-weight: 500;
+    border-radius: 0.6rem;
+    padding: 0.5rem 1.1rem;
+    box-shadow: 0 4px 14px 0 rgba(34,139,34,0.08);
+    transition: transform 0.08s, box-shadow 0.08s;
+}
+.btn-custom:active {
+    transform: scale(0.97);
+    box-shadow: none;
+}
+
+/* Botón REGISTRAR - verde */
+.btn-success {
+    background-color: #28a745 !important;
+    border: none;
+    color: #fff !important;
+}
+.btn-success:hover, .btn-success:focus {
+    background-color: #218838 !important;
+}
+
+/* Botón IMPRIMIR/EXPORTAR - naranja */
+.btn-warning {
+    background-color: #ff9800 !important;   /* Naranja fuerte, más vibrante que el amarillo Bootstrap */
+    border: none;
+    color: #fff !important;
+}
+.btn-warning:hover, .btn-warning:focus {
+    background-color: #e65100 !important;
+}
+
+/* Botón ELIMINAR - rojo */
+.btn-danger {
+    background-color: #dc3545 !important;
+    border: none;
+    color: #fff !important;
+}
+.btn-danger:hover, .btn-danger:focus {
+    background-color: #c82333 !important;
+}

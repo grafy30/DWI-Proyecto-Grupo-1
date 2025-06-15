@@ -46,7 +46,7 @@ public class ListaUsuariosPDFServlet extends HttpServlet {
 
             Font fontCelda = new Font(Font.FontFamily.HELVETICA, 11);
             for (UsuariosBE usuario : usuarios) {
-                tabla.addCell(crearCelda(usuario.getUsuario(), fontCelda));
+                tabla.addCell(crearCelda(usuario.getNickname(), fontCelda));
                 tabla.addCell(crearCelda(usuario.getNombres(), fontCelda));
                 tabla.addCell(crearCelda(usuario.getRol(), fontCelda));
             }

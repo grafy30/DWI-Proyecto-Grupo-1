@@ -6,34 +6,39 @@ import java.util.ArrayList;
 
 public class ClientesBL implements IBaseBL<ClientesBE> {
 
+    private final ClientesDAO clienteDao;
+
+    public ClientesBL() {
+        this.clienteDao = new ClientesDAO();
+    }
+
     @Override
     public boolean Create(ClientesBE input) {
-        ClientesDAO cliente = new ClientesDAO();
-        return cliente.Create(input);
+        return clienteDao.Create(input);
     }
 
     @Override
     public ClientesBE Read(String input) {
-        ClientesDAO cliente = new ClientesDAO();
-        return cliente.Read(input);
+        return clienteDao.Read(input);
     }
 
     @Override
     public ArrayList<ClientesBE> ReadAll() {
-        ClientesDAO cliente = new ClientesDAO();
-        return cliente.ReadAll();
+        return clienteDao.ReadAll();
     }
 
     @Override
     public boolean Update(ClientesBE input) {
-        ClientesDAO cliente = new ClientesDAO();
-        return cliente.Update(input);
+        return clienteDao.Update(input);
     }
 
     @Override
     public boolean Delete(String input) {
-    ClientesDAO cliente = new ClientesDAO();
-        return cliente.Delete(input);
+        return clienteDao.Delete(input);
     }
 
+    // --- Métodos extra para integración por usuario ---
+    public ClientesBE findByUsuarioId(int idUsuario) {
+        return clienteDao.findByUsuarioId(idUsuario);
+    }
 }

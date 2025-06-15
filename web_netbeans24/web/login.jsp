@@ -92,7 +92,7 @@
                     </div>
                     <button type="submit" class="btn btn-submit">Ingresar</button>
                 </form>
-                <a href="registrar.jsp" class="register-link">¿No tienes cuenta? Regístrate</a>
+                <a href="registrar_cliente_publico.jsp" class="register-link">¿No tienes cuenta? Regístrate</a>
             </div>
         </div>                
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -32,72 +32,56 @@ public class ClienteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         request.setCharacterEncoding("UTF-8");
-
-        String id_cliente = request.getParameter("id_cliente");
-        String telefono = request.getParameter("telefono");
-        String direccion = request.getParameter("direccion");
-        String empresa = request.getParameter("empresa");
-        String tipo = request.getParameter("tipo");
         String accion = request.getParameter("accion");
 
-        // id_usuario de sesión (¡requerido para registrar!)
-        HttpSession sesion = request.getSession(false);
-        Integer id_usuario = (Integer) (sesion != null ? sesion.getAttribute("id_usuario") : null);
+        // ---- 1. Eliminación por AJAX ----
+        if ("eliminar".equals(accion)) {
+            String idCliente = request.getParameter("idCliente");
+            boolean eliminado = logica.Delete(idCliente);
+            response.setContentType("text/plain");
+            response.getWriter().write(eliminado ? "ok" : "error");
+            return;
+        }
+
+        // ---- 2. Registro y Edición ----
+        String id_cliente = request.getParameter("id_cliente");
+        String id_usuario = request.getParameter("id_usuario");
+        String empresa = request.getParameter("empresa");
+        String direccion = request.getParameter("direccion");
+        String telefono = request.getParameter("telefono");
+        String tipo_cliente = request.getParameter("tipo_cliente");
 
         ClientesBE cliente = new ClientesBE();
-        cliente.setTelefono(telefono);
-        cliente.setDireccion(direccion);
         cliente.setEmpresa(empresa);
-        cliente.setTipo(tipo);
-        if (id_usuario != null) {
-            cliente.setId_usuario(id_usuario);
-        }
+        cliente.setDireccion(direccion);
+        cliente.setTelefono(telefono);
+        cliente.setTipo_cliente(tipo_cliente);
 
         boolean resultado = false;
+        String mensaje = "";
 
-        // --- ELIMINAR ---
-        if ("eliminar".equals(accion)) {
-            boolean eliminado = logica.Delete(id_cliente);
-            if (eliminado) {
-                response.sendRedirect("listar_clientes.jsp?eliminado=ok");
-            } else {
-                response.sendRedirect("listar_clientes.jsp?eliminado=error");
-            }
-            return;
-        }
-
-        // --- REGISTRAR ---
-        if ("registrar".equals(accion)) {
-            resultado = logica.Create(cliente);
-            if (resultado) {
-                response.sendRedirect("listar_clientes.jsp?mensaje=registrado");
-            } else {
-                request.setAttribute("mensaje", "❌ Error al registrar cliente");
-                request.setAttribute("cliente", cliente);
-                request.getRequestDispatcher("registrar_clientes.jsp").forward(request, response);
-            }
-            return;
-        }
-
-        // --- EDITAR ---
-        if (id_cliente != null && !id_cliente.isEmpty()) {
+        if ("editar".equals(accion) && id_cliente != null && !id_cliente.isEmpty()) {
             cliente.setId_cliente(Integer.parseInt(id_cliente));
+            // puedes actualizar los demás campos aquí
             resultado = logica.Update(cliente);
-            if (resultado) {
-                response.sendRedirect("listar_clientes.jsp?mensaje=editado");
-            } else {
-                request.setAttribute("mensaje", "❌ Error al actualizar cliente");
-                request.setAttribute("cliente", cliente);
-                request.getRequestDispatcher("registrar_clientes.jsp").forward(request, response);
+            mensaje = resultado ? "✅ Cliente actualizado correctamente" : "❌ Hubo un error al actualizar el cliente.";
+        } else if ("registrar".equals(accion)) {
+            // Aquí necesitas asegurar que ya tienes un usuario creado y su id_usuario
+            cliente.setId_usuario(Integer.parseInt(id_usuario));
+            try {
+                resultado = logica.Create(cliente);
+                mensaje = resultado ? "✅ Cliente registrado correctamente" : "❌ Hubo un error al registrar el cliente.";
+            } catch (Exception e) {
+                mensaje = "❌ Error inesperado: " + e.getMessage();
+                resultado = false;
             }
-            return;
+        } else {
+            mensaje = "❌ Acción no reconocida.";
         }
 
-        // Si no hay acción válida, recarga el formulario vacío
+        request.setAttribute("mensaje", mensaje);
         request.setAttribute("cliente", cliente);
-        request.setAttribute("mensaje", "❌ Acción no válida.");
         request.getRequestDispatcher("registrar_clientes.jsp").forward(request, response);
     }
 }

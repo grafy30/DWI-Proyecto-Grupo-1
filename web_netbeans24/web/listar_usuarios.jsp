@@ -1,18 +1,87 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*, java.util.*, java.io.*" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <%@ page import="BusinessEntify.UsuariosBE" %>
 <%@ page import="BusinessLogic.UsuariosBL" %>
 <%
     HttpSession sesion = request.getSession(false);
     String rol = (sesion != null) ? (String) sesion.getAttribute("rol") : null;
+
+    // Solo este scriptlet es necesario para traer la lista
+    UsuariosBL usuarioBL = new UsuariosBL();
+    List<UsuariosBE> usuarios = usuarioBL.ReadAll();
 %>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Lista Usuarios</title>                
+        <title>Lista Usuarios</title>
         <%@ include file="INCLUDE/header_links.jsp" %>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    </head>
+    <body>
+        <%@ include file="INCLUDE/header_administrador.jsp" %>
+        <div class="container mt-4">
+            <div class="form-card full-width">
+                <div class="mb-4 d-flex justify-content-end gap-2">
+                    <a href="${pageContext.request.contextPath}/registrar_usuarios.jsp">
+                        <button type="button" class="btn btn-success btn-custom btn-sm">
+                            <i class="fas fa-plus"></i> Registrar
+                        </button>
+                    </a>
+                    <a href="${pageContext.request.contextPath}/ListaUsuariosPDFServlet" target="_blank">
+                        <button type="button" class="btn btn-warning btn-custom btn-sm">
+                            <i class="fas fa-file-pdf"></i> Exportar a PDF
+                        </button>
+                    </a>
+                </div>
+                <h3 class="form-title">Lista de Usuarios</h3>
+                <div class="table-responsive">
+                    <table class="tabla table table-striped table-hover align-middle text-center">
+                        <thead>
+                            <tr class="bg-success text-white">
+                                <th>Usuario</th>
+                                <th>Email</th>
+                                <th>Nombres</th>
+                                <th>Rol</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaUsuarios">
+                            <% for (UsuariosBE usuario : usuarios) {
+                                    int id = usuario.getId_usuario();
+                            %>
+                            <tr<%= id > 0 ? " id=\"fila-" + id + "\"" : ""%>>
+                                <td><%= usuario.getNickname()%></td>
+                                <td><%= usuario.getEmail()%></td>
+                                <td><%= usuario.getNombres()%></td>
+                                <td><%= usuario.getRol()%></td>
+                                <td>
+                                    <a href="${pageContext.request.contextPath}/UsuarioServlet?id_usuario=<%= id%>">
+                                        <button type="button" class="btn btn-success btn-custom btn-sm">
+                                            <i class="fas fa-pen"></i> Editar
+                                        </button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <button type="button"
+                                            class="btn btn-danger btn-custom btn-sm"
+                                            onclick="confirmarEliminacion('<%= id%>')">
+                                        <i class="fas fa-trash"></i> Eliminar
+                                    </button>
+                                </td>
+                            </tr>
+                            <% }%>
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
 
         <script>
             function confirmarEliminacion(idUsuario) {
@@ -27,111 +96,48 @@
                     cancelButtonText: 'Cancelar'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // Crear y enviar un formulario oculto por POST
-                        var form = document.createElement('form');
-                        form.method = 'POST';
-                        form.action = 'listar_usuarios.jsp';
+                        // AJAX fetch al servlet para eliminar
+                        fetch('UsuarioServlet', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: 'accion=eliminar&idUsuario=' + encodeURIComponent(idUsuario)
+                        })
+                                .then(response => response.text())
+                                .then(data => {
+                                    if (data.trim() === 'ok') {
+                                        // Elimina la fila visualmente
+                                        let fila = document.getElementById('fila-' + idUsuario);
+                                        if (fila)
+                                            fila.remove();
 
-                        var accion = document.createElement('input');
-                        accion.type = 'hidden';
-                        accion.name = 'accion';
-                        accion.value = 'eliminar';
-                        form.appendChild(accion);
-
-                        var idField = document.createElement('input');
-                        idField.type = 'hidden';
-                        idField.name = 'idUsuario';
-                        idField.value = idUsuario;
-                        form.appendChild(idField);
-
-                        document.body.appendChild(form);
-                        form.submit();
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: '¡Eliminado!',
+                                            text: 'Usuario eliminado exitosamente.',
+                                            timer: 1500,
+                                            showConfirmButton: false
+                                        });
+                                    } else {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Error',
+                                            text: 'No se pudo eliminar el usuario.',
+                                        });
+                                    }
+                                })
+                                .catch(err => {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Error',
+                                        text: 'No se pudo conectar al servidor.',
+                                    });
+                                });
                     }
                 });
             }
-
         </script>
-    </head>
-    <body>
-        <%@ include file="INCLUDE/header_administrador.jsp" %>
-        <div class="container mt-4">
-            <div class="form-card full-width">
-                <div class="mb-4 d-grid gap-2 d-md-flex flex-column align-items-start">
-                    <a href="${pageContext.request.contextPath}/registrar_usuarios.jsp" class="w-100 mb-2">
-                        <button type="button" class="btn btn-custom w-100">Registrar</button>
-                    </a>
-                    <a href="${pageContext.request.contextPath}/ListaUsuariosPDFServlet" target="_blank" class="w-100">
-                        <button type="button" class="btn btn-outline w-100">Exportar a PDF</button>
-                    </a>
-                </div>                                          
-                <%
-                    UsuariosBL usuarioBL = new UsuariosBL();
-                    List<UsuariosBE> usuarios = usuarioBL.ReadAll();
-                %>
-
-                <h3 class="form-title">Lista de Usuarios</h3>
-                <div class="table-responsive">
-                    <table class="tabla table table-striped table-hover align-middle text-center">
-                        <thead>
-                            <tr class="bg-primary text-white">
-                                <th>Usuario</th>
-                                <th>Nombres</th>
-                                <th>Rol</th>
-                                <th>Editar</th>
-                                <th>Eliminar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% for (UsuariosBE usuario : usuarios) {%>
-                            <tr>
-                                <td><%= usuario.getUsuario()%></td>
-                                <td><%= usuario.getNombres()%></td>
-                                <td><%= usuario.getRol()%></td>
-                                <td>
-                                    <a href="${pageContext.request.contextPath}/registrar_usuarios.jsp?id_usuario=<%= usuario.getId_usuario()%>" class="btn btn-primary btn-sm">Editar</a>
-                                </td>
-                                <td>                                   
-                                    <button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminacion('<%= usuario.getId_usuario()%>')">Eliminar</button>                                  
-                                </td>
-                            </tr>
-                            <% } %>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-
-        <%
-            if ("POST".equals(request.getMethod()) && "eliminar".equals(request.getParameter("accion"))) {
-                String idUsuario = request.getParameter("idUsuario");
-                UsuariosBL usuarioBLs = new UsuariosBL();
-                boolean isDeleted = usuarioBLs.Delete(idUsuario);
-
-                if (isDeleted) {
-                    response.sendRedirect(request.getContextPath() + "/listar_usuarios.jsp?eliminado=ok");
-                } else {
-                    out.println("<script>alert('❌ Error al eliminar el usuario.');</script>");
-                }
-            }
-        %>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>    
-
-        <%
-            String eliminado = request.getParameter("eliminado");
-        %>
-        <script>
-                window.onload = function () {
-                <% if ("ok".equals(eliminado)) { %>
-                    Swal.fire({
-                        icon: 'success',
-                        title: '¡Eliminado!',
-                        text: 'Usuario eliminado exitosamente.',
-                        timer: 2000,
-                        showConfirmButton: false
-                    });
-                <% }%>
-                }
-        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>

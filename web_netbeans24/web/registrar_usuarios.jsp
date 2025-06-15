@@ -1,91 +1,56 @@
-<%@ page import="BusinessLogic.UsuariosBL, BusinessEntify.UsuariosBE" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ include file="INCLUDE/header_links.jsp" %>
 <%
-    String userId = request.getParameter("id_usuario");
-    String estado = request.getParameter("estado");
-
-    UsuariosBL usuarioBL = new UsuariosBL();
-    UsuariosBE usuario = null;
-
-    if ("nuevo".equals(estado)) {
-        usuario = new UsuariosBE();
-    } else if (userId != null && !userId.isEmpty()) {
-        usuario = usuarioBL.Read(userId);  
-    } else {
-        usuario = new UsuariosBE();
+    BusinessEntify.UsuariosBE usuario = (BusinessEntify.UsuariosBE) request.getAttribute("usuario");
+    if (usuario == null) {
+        usuario = new BusinessEntify.UsuariosBE();
     }
-
-    if (request.getMethod().equalsIgnoreCase("POST")) {
-        String usuarioNombre = request.getParameter("usuario");
-        String password = request.getParameter("password");
-        String rol = request.getParameter("rol");
-        String nombres = request.getParameter("nombres");
-
-        boolean resultado;
-
-        if (userId != null && !userId.isEmpty()) {
-            UsuariosBE usuarioActualizado = new UsuariosBE();
-            usuarioActualizado.setId_usuario(Integer.parseInt(userId)); // ✅ sigue usando int aquí
-            usuarioActualizado.setNombres(nombres);
-            usuarioActualizado.setUsuario(usuarioNombre);
-            usuarioActualizado.setPassword(password);
-            usuarioActualizado.setRol(rol);
-            resultado = usuarioBL.Update(usuarioActualizado);
-
-            response.sendRedirect("registrar_usuarios.jsp?estado=" + (resultado ? "editado" : "error"));
-            return;
-        } else {
-            UsuariosBE nuevoUsuario = new UsuariosBE();
-            nuevoUsuario.setNombres(nombres);
-            nuevoUsuario.setUsuario(usuarioNombre);
-            nuevoUsuario.setPassword(password);
-            nuevoUsuario.setRol(rol);
-            resultado = usuarioBL.Create(nuevoUsuario);
-
-            response.sendRedirect("registrar_usuarios.jsp?estado=" + (resultado ? "registrado" : "error"));
-            return;
-        }
-    }
+    boolean esEdicion = usuario.getId_usuario() > 0;
 %>
-
-
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title><%= (userId != null && !userId.isEmpty()) ? "Editar Usuario" : "Registrar Usuario"%></title>      
-        <%@ include file="INCLUDE/header_links.jsp" %>        
+        <title><%= esEdicion ? "Editar Usuario" : "Registrar Usuario"%></title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <body>
-        <%@ include file="INCLUDE/header_administrador.jsp" %>        
+        <%@ include file="INCLUDE/header_administrador.jsp" %>
         <div class="container mt-4">
             <div class="form-card">
-                <% if ("registrado".equals(estado)) { %>
-                <div id="alerta" class="alert alert-success text-center">✅ ¡Usuario registrado exitosamente!</div>
-                <% } else if ("editado".equals(estado)) { %>
-                <div id="alerta" class="alert alert-info text-center">📝 ¡Usuario actualizado correctamente!</div>
-                <% } else if ("error".equals(estado)) { %>
-                <div id="alerta" class="alert alert-danger text-center">⚠️ Hubo un error. Intente nuevamente.</div>
+                <% String mensaje = (String) request.getAttribute("mensaje"); %>
+                <% if (mensaje != null) {%>
+                <script>
+                    Swal.fire({
+                        icon: '<%= mensaje.toLowerCase().contains("error") || mensaje.toLowerCase().contains("hubo") ? "error" : "success"%>',
+                        title: '<%= mensaje.replaceAll("✅|❌", "")%>',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                </script>
                 <% }%>
 
-                <h3 class="form-title">
-                    <%= (userId != null && !userId.isEmpty()) ? "Editar Usuario" : "Registrar Nuevo Usuario"%>
-                </h3>
-
-                <form method="post" action="registrar_usuarios.jsp" id="formularioUsuario">
-                    <input type="hidden" name="id_usuario" value="<%= userId != null ? userId : ""%>">                    
+                <h3 class="form-title"><%= esEdicion ? "Editar Usuario" : "Registrar Nuevo Usuario"%></h3>
+                <form method="post" action="UsuarioServlet" id="formularioUsuario">
+                    <input type="hidden" name="id_usuario" value="<%= usuario.getId_usuario() > 0 ? usuario.getId_usuario() : ""%>">
+                    <input type="hidden" name="accion" value="<%= esEdicion ? "editar" : "registrar"%>">
 
                     <div class="mb-3">
                         <label for="usuario" class="form-label">Usuario</label>
-                        <input type="text" name="usuario" id="usuario" class="form-control"
-                               value="<%= usuario.getUsuario() != null ? usuario.getUsuario() : ""%>" required>
+                        <input type="text" name="usuario" id="usuario" placeholder="Usuario" class="form-control"
+                               value="<%= usuario.getNickname()!= null ? usuario.getNickname(): ""%>" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Correo electrónico" class="form-control"
+                               value="<%= usuario.getEmail() != null ? usuario.getEmail() : ""%>" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" name="password" id="password" class="form-control"
+                        <input type="password" name="password" id="password" placeholder="Contraseña" class="form-control"
                                value="<%= usuario.getPassword() != null ? usuario.getPassword() : ""%>" required>
                     </div>
 
@@ -100,41 +65,23 @@
 
                     <div class="mb-4">
                         <label for="nombres" class="form-label">Nombres</label>
-                        <input type="text" name="nombres" id="nombres" class="form-control"
+                        <input type="text" name="nombres" id="nombres" placeholder="Nombres" class="form-control"
                                value="<%= usuario.getNombres() != null ? usuario.getNombres() : ""%>" required>
                     </div>
 
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-custom">
-                            <%= (userId != null && !userId.isEmpty()) ? "Actualizar Usuario" : "Registrar Usuario"%>
+                            <%= esEdicion ? "Actualizar Usuario" : "Registrar Usuario"%>
                         </button>
-
-                        <button type="button" onclick="limpiarFormulario()" class="btn btn-outline">
-                            🧹 Limpiar Datos
-                        </button>
-
-                        <a href="listar_usuarios.jsp" class="btn btn-outline">
-                            👥 Ver Usuarios
-                        </a>
+                        <button type="button" onclick="limpiarFormulario()" class="btn btn-outline">🧹 Limpiar Datos</button>
+                        <a href="listar_usuarios.jsp" class="btn btn-outline">👥 Ver Usuarios</a>
                     </div>
                 </form>
             </div>
         </div>
-
-        <!-- Script para ocultar la alerta automáticamente y limpiar formulario -->
         <script>
-            window.onload = function () {
-                const alerta = document.getElementById("alerta");
-                if (alerta) {
-                    setTimeout(() => {
-                        alerta.classList.add("fade-out");
-                    }, 2000);
-                }
-            };
-
             function limpiarFormulario() {
                 document.getElementById("formularioUsuario").reset();
-                // También borramos el id_usuario si estamos limpiando para nuevo registro
                 document.querySelector('input[name="id_usuario"]').value = "";
             }
         </script>

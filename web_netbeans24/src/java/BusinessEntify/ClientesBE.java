@@ -1,21 +1,23 @@
 package BusinessEntify;
+
 public class ClientesBE {
+
     private int id_cliente;
     private int id_usuario;
-    private String nombre;
-    private String direccion;
     private String telefono;
+    private String direccion;
     private String empresa;
-    private String correo;
-    private String tipo;
+    private String tipo_cliente;
     private String fecha_registro;
-    
-    //Constructor
+
+    // Campos para visualización (opcional)
+    private String nombres; // Traído de usuarios
+    private String email;   // Traído de usuarios
+
     public ClientesBE() {
     }
-    
-    //Getters and Setters
 
+    // Getters y Setters
     public int getId_cliente() {
         return id_cliente;
     }
@@ -24,20 +26,12 @@ public class ClientesBE {
         this.id_cliente = id_cliente;
     }
 
-    public String getNombre() {
-        return nombre;
+    public int getId_usuario() {
+        return id_usuario;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     public String getTelefono() {
@@ -48,12 +42,12 @@ public class ClientesBE {
         this.telefono = telefono;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public String getEmpresa() {
@@ -63,13 +57,13 @@ public class ClientesBE {
     public void setEmpresa(String empresa) {
         this.empresa = empresa;
     }
-    
-    public String getTipo() {
-        return tipo;
+
+    public String getTipo_cliente() {
+        return tipo_cliente;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipo_cliente(String tipo_cliente) {
+        this.tipo_cliente = tipo_cliente;
     }
 
     public String getFecha_registro() {
@@ -80,11 +74,20 @@ public class ClientesBE {
         this.fecha_registro = fecha_registro;
     }
 
-    public int getId_usuario() {
-        return id_usuario;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
-    }   
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 }
