@@ -9,7 +9,7 @@
     <body>
         <%@ include file="INCLUDE/header_usuario.jsp" %>
         <section class="administrador text-center align-items-center mt-5">
-            <h1>¡Hola, Usuario!</h1>
+            <h1>¡Hola, Humano!</h1>
             <p>Has iniciado sesión correctamente.</p>
         </section>                
         <%@ include file="INCLUDE/footer.jsp" %>

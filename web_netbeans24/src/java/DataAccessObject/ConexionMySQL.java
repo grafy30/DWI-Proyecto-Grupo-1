@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class ConexionMySQL {
     private final String URL = "jdbc:mysql://localhost:3306/consultoria_arquitectura?useUnicode=true&characterEncoding=utf8";
     private final String USER = "root";
-    private final String PASS = "admin";
+    private final String PASS = "admin1234";
 
     public ConexionMySQL() {
         try {
