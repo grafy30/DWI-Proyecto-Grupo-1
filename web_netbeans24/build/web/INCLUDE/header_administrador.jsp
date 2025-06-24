@@ -8,7 +8,7 @@
                     <path d="M8 0c-.69 0-1.238.293-1.684.545A6.987 6.987 0 0 0 1.58 3.388a1.72 1.72 0 0 0-.58 1.248c0 7.38 5.073 10.485 6.14 10.922a1.05 1.05 0 0 0 .72 0c1.067-.437 6.14-3.543 6.14-10.922 0-.478-.21-.936-.58-1.248A6.987 6.987 0 0 0 9.684.545C9.238.293 8.69 0 8 0z"/>
                 </svg>
             </span>
-            <span class="fw-bold fs-5 text-white">Admin</span>
+            <span class="fw-bold fs-5 text-white">Users</span>
         </a>
 
         <!-- Botón hamburguesa -->
@@ -29,7 +29,7 @@
                 </li>
                 <!-- Proyectos -->
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/admin_proyectos.jsp">Proyectos</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/listar_proyectos.jsp">Proyectos</a>
                 </li>
                 <!-- Solicitudes -->
                 <li class="nav-item">

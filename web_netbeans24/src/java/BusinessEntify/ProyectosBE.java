@@ -1,22 +1,18 @@
 package BusinessEntify;
-import java.time.LocalDateTime;
-public class ProyectosBE {
-    
+import javax.swing.ImageIcon;
+
+public class ProyectosBE {    
     private int id_proyecto;
+    private String titulo_proyecto;
     private String nombre_proyecto;
     private String descripcion;
-    private int id_servicio;
-    private int id_cliente;
-    private LocalDateTime fecha_inicio;
-    private LocalDateTime fecha_fin_estimada;
-    private int presupuesto;
-    private String estado;
-    
-    //Constructor
+    private ImageIcon imagen;
+
+    // Constructor
     public ProyectosBE() {
     }
-    
-    //Getter and Setters
+
+    // Getters y Setters
 
     public int getId_proyecto() {
         return id_proyecto;
@@ -24,6 +20,14 @@ public class ProyectosBE {
 
     public void setId_proyecto(int id_proyecto) {
         this.id_proyecto = id_proyecto;
+    }
+
+    public String getTitulo_proyecto() {
+        return titulo_proyecto;
+    }
+
+    public void setTitulo_proyecto(String titulo_proyecto) {
+        this.titulo_proyecto = titulo_proyecto;
     }
 
     public String getNombre_proyecto() {
@@ -42,51 +46,11 @@ public class ProyectosBE {
         this.descripcion = descripcion;
     }
 
-    public int getId_servicio() {
-        return id_servicio;
+    public ImageIcon getImagen() {
+        return imagen;
     }
 
-    public void setId_servicio(int id_servicio) {
-        this.id_servicio = id_servicio;
+    public void setImagen(ImageIcon imagen) {
+        this.imagen = imagen;
     }
-
-    public int getId_cliente() {
-        return id_cliente;
-    }
-
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
-    }
-
-    public LocalDateTime getFecha_inicio() {
-        return fecha_inicio;
-    }
-
-    public void setFecha_inicio(LocalDateTime fecha_inicio) {
-        this.fecha_inicio = fecha_inicio;
-    }
-
-    public LocalDateTime getFecha_fin_estimada() {
-        return fecha_fin_estimada;
-    }
-
-    public void setFecha_fin_estimada(LocalDateTime fecha_fin_estimada) {
-        this.fecha_fin_estimada = fecha_fin_estimada;
-    }
-
-    public int getPresupuesto() {
-        return presupuesto;
-    }
-
-    public void setPresupuesto(int presupuesto) {
-        this.presupuesto = presupuesto;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }    
 }
