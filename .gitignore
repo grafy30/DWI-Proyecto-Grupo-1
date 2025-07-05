@@ -1,0 +1,6 @@
+/web_netbeans24/build/
+/web_netbeans24/dist/
+*.class
+*.log
+*.tmp
+*.bak
