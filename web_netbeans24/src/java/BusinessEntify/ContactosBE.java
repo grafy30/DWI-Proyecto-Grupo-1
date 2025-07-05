@@ -5,7 +5,6 @@ public class ContactosBE {
     private int id_contacto;
     private String nombre;
     private String correo;
-    private String telefono;
     private String mensaje;
     private Date fecha_contacto;
     private String estado; 
@@ -39,15 +38,6 @@ public class ContactosBE {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
     public String getMensaje() {
         return mensaje;
     }

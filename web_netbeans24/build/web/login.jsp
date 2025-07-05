@@ -73,7 +73,7 @@
                             }
                         }
                     }
-                %>
+                %> 
 
                 <% if (!mensaje.isEmpty()) {%>
                 <div class="alert alert-danger" role="alert">

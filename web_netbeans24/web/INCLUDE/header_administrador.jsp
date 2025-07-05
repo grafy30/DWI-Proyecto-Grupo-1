@@ -33,7 +33,7 @@
                 </li>
                 <!-- Solicitudes -->
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/admin_solicitudes.jsp">Solicitudes</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/solicitudes_contacto.jsp">Solicitudes</a>
                 </li>
             </ul>
 

@@ -166,7 +166,7 @@ public class UsuariosDAO extends ConexionMySQL implements IBaseDAO<UsuariosBE> {
     }
 
     // Login clásico (puede ser email o nickname)
-    public UsuariosBE login(String email, String password) {
+    public UsuariosBE login(String email, String password ) {
         UsuariosBE user = null;
         String sql = "SELECT * FROM usuarios WHERE (email = ? OR nickname = ?) AND password = ?";
         try (Connection con = getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {

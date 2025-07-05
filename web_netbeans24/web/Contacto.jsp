@@ -23,13 +23,19 @@
                 <!-- Formulario -->
                 <div class="col-md-6 mb-4">
                     <h3 class="h3 mb-3">Formulario de Contacto</h3>
+                    <% String mensaje = (String) request.getAttribute("mensaje"); %>
+                    <% if (mensaje != null) {%>
+                    <div class="alert alert-info mt-3 text-center">
+                        <%= mensaje%>
+                    </div>
+                    <% } %>
                     <form action="${pageContext.request.contextPath}/ContactoServlet" method="POST">
                         <div class="mb-3">
                             <input type="text" name="fullname" class="form-control" placeholder="Nombre completo" required>
                         </div>
                         <div class="mb-3">
                             <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
-                        </div>
+                        </div>             
                         <div class="mb-3">
                             <textarea name="message" class="form-control" rows="5" placeholder="Tu mensaje" required></textarea>
                         </div>
@@ -51,7 +57,7 @@
         <!-- Popup -->
         <div id="popup" class="popup">
             <p>Mensaje Enviado</p>
-        </div>        
+        </div>     
         <%
             String enviado = request.getParameter("enviado");
             if ("true".equals(enviado)) {
@@ -68,3 +74,4 @@
         <%@ include file="INCLUDE/footer.jsp" %>
     </body>
 </html>
+

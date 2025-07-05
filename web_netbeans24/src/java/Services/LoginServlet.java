@@ -12,19 +12,17 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        System.out.println("Parámetro username recibido: " + request.getParameter("username"));
-        System.out.println("Parámetro password recibido: " + request.getParameter("password"));
-        
+       
         String usuario = request.getParameter("username");
         String password = request.getParameter("password");
+        System.out.println("Usuario: " + usuario + ", Password: " + password);
 
         try {
             UsuariosDAO usuarioDAO = new UsuariosDAO();
             UsuariosBE user = usuarioDAO.login(usuario, password);
-
             if (user != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("usuario", user.getNickname());
