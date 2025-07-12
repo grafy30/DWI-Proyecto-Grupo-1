@@ -18,6 +18,65 @@
             </p>
         </section>
 
+        <section class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Categorías Destacadas</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-laptop fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Electrónicos</h5>
+                                <p class="card-text">Los últimos dispositivos tecnológicos</p>
+                                <a href="${pageContext.request.contextPath}/products?category=1" class="btn btn-outline-primary">
+                                    Ver Servicios
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-tshirt fa-3x text-success mb-3"></i>
+                                <h5 class="card-title">Ropa</h5>
+                                <p class="card-text">Moda y estilo para toda ocasión</p>
+                                <a href="${pageContext.request.contextPath}/products?category=2" class="btn btn-outline-success">
+                                    Ver Servicios
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-home fa-3x text-warning mb-3"></i>
+                                <h5 class="card-title">Hogar</h5>
+                                <p class="card-text">Todo para tu hogar y decoración</p>
+                                <a href="${pageContext.request.contextPath}/products?category=3" class="btn btn-outline-warning">
+                                    Ver Servicios
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Servicios Destacados -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">Servicios Destacados</h2>
+                <div class="row" id="featured-products">
+                    <!-- Los productos se cargarán dinámicamente -->
+                </div>
+                <div class="text-center mt-4">
+                    <a href="${pageContext.request.contextPath}/products" class="btn btn-primary">
+                        Ver Todos los servicios
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- Sección 1 -->
         <section class="content-block">
             <div class="text-block">

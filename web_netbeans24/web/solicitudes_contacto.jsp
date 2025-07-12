@@ -39,7 +39,7 @@
                         </tr>
                     </thead>
                     <tbody id="tablaSolicitudes">
-                    <% for (ContactosBE contacto : contactos) { %>
+                    <% for(ContactosBE contacto : contactos) { %>
                         <tr id="fila-<%= contacto.getId_contacto() %>">
                             <td><%= contacto.getNombre() %></td>
                             <td><%= contacto.getCorreo() %></td>

@@ -1,7 +1,7 @@
 package Services;
 
-import BusinessEntify.ProyectosBE;
-import BusinessLogic.ProyectosBL;
+import BusinessEntify.PersonalBE;
+import BusinessLogic.PersonalBL;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,25 +13,25 @@ import javax.servlet.http.*;
 import javax.swing.ImageIcon;
 import java.awt.image.BufferedImage;
 
-@WebServlet("/ProyectoServlet")
+@WebServlet("/PersonalServlet")
 @MultipartConfig(maxFileSize = 1024 * 1024 * 5) // Máx. 5MB
-public class ProyectosServlet extends HttpServlet {
+public class PersonalServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private final ProyectosBL logica = new ProyectosBL();
+    private final PersonalBL logica = new PersonalBL();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id_proyecto");
-        ProyectosBE proyecto;
+        String id = request.getParameter("id_personal");
+        PersonalBE personal;
         if (id != null && !id.isEmpty()) {
-            proyecto = logica.Read(id);
+            personal = logica.Read(id);
         } else {
-            proyecto = new ProyectosBE();
+            personal = new PersonalBE();
         }
-        request.setAttribute("proyecto", proyecto);
-        request.getRequestDispatcher("registrar_proyectos.jsp").forward(request, response);
+        request.setAttribute("personal", personal);
+        request.getRequestDispatcher("registrar_personal.jsp").forward(request, response);
     }
 
     @Override
@@ -43,30 +43,34 @@ public class ProyectosServlet extends HttpServlet {
 
         // Eliminar por AJAX (opcional)
         if ("eliminar".equals(accion)) {
-            String id = request.getParameter("idProyecto");
+            String id = request.getParameter("id_personal");
             boolean eliminado = logica.Delete(id);
             response.setContentType("text/plain");
             response.getWriter().write(eliminado ? "ok" : "error");
             return;
         }
 
-        String id_proyecto = request.getParameter("id_proyecto");
-        String titulo = request.getParameter("titulo_proyecto");
-        String nombre = request.getParameter("nombre_proyecto");
+        String id_personal = request.getParameter("id_personal");
+        String nombres = request.getParameter("nombres");
+        String cargo = request.getParameter("cargo");
+        String correo = request.getParameter("correo");
+        String telefono = request.getParameter("telefono");
         String descripcion = request.getParameter("descripcion");
         Part imagenPart = request.getPart("imagen");
 
-        ProyectosBE proyecto = new ProyectosBE();
-        proyecto.setTitulo_proyecto(titulo);
-        proyecto.setNombre_proyecto(nombre);
-        proyecto.setDescripcion(descripcion);
+        PersonalBE personal = new PersonalBE();
+        personal.setNombre_personal(nombres);
+        personal.setCargo_personal(cargo);
+        personal.setCorreo_personal(correo);
+        personal.setTelefono_personal(telefono);
+        personal.setDescripcion(descripcion);
 
         // Procesar imagen si se subió una
         if (imagenPart != null && imagenPart.getSize() > 0) {
             try (InputStream input = imagenPart.getInputStream()) {
                 BufferedImage bufferedImage = ImageIO.read(input);
                 if (bufferedImage != null) {
-                    proyecto.setImagen(new ImageIcon(bufferedImage));
+                    personal.setImagen(new ImageIcon(bufferedImage));
                 }
             } catch (Exception e) {
                 System.out.println("⚠️ Error al procesar la imagen: " + e.getMessage());
@@ -76,19 +80,19 @@ public class ProyectosServlet extends HttpServlet {
         boolean resultado = false;
         String mensaje;
 
-        if ("editar".equals(accion) && id_proyecto != null && !id_proyecto.isEmpty()) {
-            proyecto.setId_proyecto(Integer.parseInt(id_proyecto));
-            resultado = logica.Update(proyecto);
-            mensaje = resultado ? "✅ Proyecto actualizado correctamente" : "❌ Error al actualizar el proyecto.";
+        if ("editar".equals(accion) && id_personal != null && !id_personal.isEmpty()) {
+            personal.setId_personal(Integer.parseInt(id_personal));
+            resultado = logica.Update(personal);
+            mensaje = resultado ? "✅ Personal actualizado correctamente" : "❌ Error al actualizar el personal.";
         } else if ("registrar".equals(accion)) {
-            resultado = logica.Create(proyecto);
-            mensaje = resultado ? "✅ Proyecto registrado correctamente" : "❌ Error al registrar el proyecto.";
+            resultado = logica.Create(personal);
+            mensaje = resultado ? "✅ Personal registrado correctamente" : "❌ Error al registrar el personal.";
         } else {
             mensaje = "❌ Acción no válida.";
         }
 
         request.setAttribute("mensaje", mensaje);
-        request.setAttribute("proyecto", proyecto);
-        request.getRequestDispatcher("registrar_proyectos.jsp").forward(request, response);
+        request.setAttribute("personal", personal);
+        request.getRequestDispatcher("registrar_personal.jsp").forward(request, response);
     }
 }

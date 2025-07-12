@@ -63,10 +63,10 @@ public class ContactoServlet extends HttpServlet {
             boolean resultado = logica.Create(contacto);
 
             if (resultado) {
-                response.sendRedirect("contacto.jsp?enviado=true");
+                response.sendRedirect("Contacto.jsp?enviado=true");
             } else {
                 request.setAttribute("mensaje", "❌ No se pudo registrar el mensaje.");
-                request.getRequestDispatcher("contacto.jsp").forward(request, response);
+                request.getRequestDispatcher("Contacto.jsp").forward(request, response);
             }
         }
     }
