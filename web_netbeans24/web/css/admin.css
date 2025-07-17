@@ -35,7 +35,21 @@
     color: #2c3e50;
     text-align: center;
 }
+/* Estilo para los labels del formulario */
+.form-label {
+    display: block;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #34495e;
+    margin-bottom: 6px;
+    letter-spacing: 0.01em;
+}
 
+.form-card input,
+.form-card textarea,
+.form-card select {
+    margin-bottom: 18px;
+}
 .btn-custom {
     background-color: #0d6efd;
     color: white;
