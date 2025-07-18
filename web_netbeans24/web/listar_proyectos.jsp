@@ -52,7 +52,7 @@
                     <% for (ProyectosBE p : lista) {
                         int id = p.getId_proyecto();
                     %>
-                    <tr id="fila-<%= id %>">
+                    <tr<%= id > 0 ? " id=\"fila-" + id + "\"" : ""%>>
                         <td><%= p.getTitulo_proyecto() %></td>
                         <td><%= p.getNombre_proyecto() %></td>
                         <td><%= p.getDescripcion() %></td>

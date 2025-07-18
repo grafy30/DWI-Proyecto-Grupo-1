@@ -1,4 +1,5 @@
 package Services;
+
 import BusinessEntify.UsuariosBE;
 import DataAccessObject.UsuariosDAO;
 import java.io.IOException;
@@ -15,7 +16,6 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
         String usuario = request.getParameter("username");
         String password = request.getParameter("password");
         System.out.println("Usuario: " + usuario + ", Password: " + password);
@@ -25,6 +25,11 @@ public class LoginServlet extends HttpServlet {
             UsuariosBE user = usuarioDAO.login(usuario, password);
             if (user != null) {
                 HttpSession session = request.getSession();
+
+                // SOLUCIÓN: Guardar el objeto completo UsuariosBE en la sesión
+                session.setAttribute("usuarioCompleto", user);
+
+                // Mantener también los datos individuales para compatibilidad
                 session.setAttribute("usuario", user.getNickname());
                 session.setAttribute("rol", user.getRol());
                 session.setAttribute("id_usuario", user.getId_usuario());

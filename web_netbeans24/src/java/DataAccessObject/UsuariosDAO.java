@@ -166,7 +166,7 @@ public class UsuariosDAO extends ConexionMySQL implements IBaseDAO<UsuariosBE> {
     }
 
     // Login clásico (puede ser email o nickname)
-    public UsuariosBE login(String email, String password ) {
+    public UsuariosBE login(String email, String password) {
         UsuariosBE user = null;
         String sql = "SELECT * FROM usuarios WHERE (email = ? OR nickname = ?) AND password = ?";
         try (Connection con = getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
@@ -196,4 +196,37 @@ public class UsuariosDAO extends ConexionMySQL implements IBaseDAO<UsuariosBE> {
         user.setRol(rs.getString("rol"));
         return user;
     }
+
+    public boolean actualizarDatosBasicos(UsuariosBE input) {
+        String sql = "UPDATE usuarios SET email = ?, nickname = ?, nombres = ?, rol = ? WHERE id_usuario = ?";
+        try (Connection con = getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, input.getEmail());
+            ps.setString(2, input.getNickname());
+            ps.setString(3, input.getNombres());
+            ps.setString(4, input.getRol());
+            ps.setInt(5, input.getId_usuario());
+
+            return ps.executeUpdate() > 0;
+
+        } catch (Exception e) {
+            System.out.println("❌ Error al actualizar datos básicos: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    public boolean actualizarPassword(int idUsuario, String nuevaPassword) {
+    String sql = "UPDATE usuarios SET password = ? WHERE id_usuario = ?";
+    try (Connection con = getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+        
+        ps.setString(1, nuevaPassword);
+        ps.setInt(2, idUsuario);
+        
+        return ps.executeUpdate() > 0;
+        
+    } catch (Exception e) {
+        System.out.println("❌ Error al actualizar contraseña: " + e.getMessage());
+        return false;
+    }
+}
 }

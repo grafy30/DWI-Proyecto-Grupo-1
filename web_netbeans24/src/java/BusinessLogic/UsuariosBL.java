@@ -38,8 +38,8 @@ public class UsuariosBL implements IBaseBL<UsuariosBE> {
     }
 
     // --- Métodos extra para autenticación y Google ---
-    public UsuariosBE login(String emailOrNickname, String password) {
-        return userDao.login(emailOrNickname, password);
+    public UsuariosBE login(String username, String password) {
+        return userDao.login(username, password);
     }
 
     public UsuariosBE findByEmail(String email) {

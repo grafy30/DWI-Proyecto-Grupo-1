@@ -25,9 +25,9 @@
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 shadow-sm">
                             <div class="card-body text-center">
-                                <i class="fas fa-laptop fa-3x text-primary mb-3"></i>
-                                <h5 class="card-title">Electrónicos</h5>
-                                <p class="card-text">Los últimos dispositivos tecnológicos</p>
+                                <i class="fas fa-drafting-compass fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Diseño</h5>
+                                <p class="card-text">Planificación y modelación Arquitectónica conceptual</p>
                                 <a href="${pageContext.request.contextPath}/products?category=1" class="btn btn-outline-primary">
                                     Ver Servicios
                                 </a>
@@ -37,9 +37,9 @@
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 shadow-sm">
                             <div class="card-body text-center">
-                                <i class="fas fa-tshirt fa-3x text-success mb-3"></i>
-                                <h5 class="card-title">Ropa</h5>
-                                <p class="card-text">Moda y estilo para toda ocasión</p>
+                                <i class="fas fa-building fa-3x text-success mb-3"></i>
+                                <h5 class="card-title">Construcción</h5>
+                                <p class="card-text">Edificación de viviendas unifamiliares y multifamiliares</p>
                                 <a href="${pageContext.request.contextPath}/products?category=2" class="btn btn-outline-success">
                                     Ver Servicios
                                 </a>
@@ -49,9 +49,9 @@
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 shadow-sm">
                             <div class="card-body text-center">
-                                <i class="fas fa-home fa-3x text-warning mb-3"></i>
-                                <h5 class="card-title">Hogar</h5>
-                                <p class="card-text">Todo para tu hogar y decoración</p>
+                                <i class="fas fa-handshake fa-3x text-warning mb-3"></i>
+                                <h5 class="card-title">Servicios Integrados</h5>
+                                <p class="card-text">Identificación y desarrollo de oportunidades de inversión</p>
                                 <a href="${pageContext.request.contextPath}/products?category=3" class="btn btn-outline-warning">
                                     Ver Servicios
                                 </a>
