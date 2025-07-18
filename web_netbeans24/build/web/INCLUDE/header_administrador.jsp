@@ -23,6 +23,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/listar_clientes.jsp">Clientes</a>
                 </li>
+                <!-- Personal de empresa -->
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/listar_personal.jsp">Personal</a>
+                </li>
                 <!-- Servicios -->
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/admin_servicios.jsp">Servicios</a>
