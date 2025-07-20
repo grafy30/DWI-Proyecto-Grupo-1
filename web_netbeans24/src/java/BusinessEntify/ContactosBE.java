@@ -8,7 +8,9 @@ public class ContactosBE {
     private String mensaje;
     private Date fecha_contacto;
     private String estado; 
-    
+    private String respuesta;
+    private int id_usuario;
+
     //Constructor
     public ContactosBE() {
     }
@@ -61,4 +63,20 @@ public class ContactosBE {
     public void setEstado(String estado) {
         this.estado = estado;
     }        
+
+    public String getRespuesta() {
+        return respuesta;
+    }
+
+    public void setRespuesta(String respuesta) {
+        this.respuesta = respuesta;
+    }
+
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
 }

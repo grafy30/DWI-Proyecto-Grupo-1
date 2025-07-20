@@ -29,7 +29,7 @@
                 </li>
                 <!-- Servicios -->
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/admin_servicios.jsp">Servicios</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/listar_servicios.jsp">Servicios</a>
                 </li>
                 <!-- Proyectos -->
                 <li class="nav-item">

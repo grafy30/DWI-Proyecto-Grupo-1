@@ -9,10 +9,12 @@ public class UsuariosBE {
     private String password;
     private String google_id;
     private String rol;
+    private String nombre_completo;
+    private String correo;
 
     public UsuariosBE() {
     }
-    
+
     // Getters y Setters
     public int getId_usuario() {
         return id_usuario;
@@ -68,5 +70,21 @@ public class UsuariosBE {
 
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    public String getNombre_completo() {
+        return nombre_completo;
+    }
+
+    public void setNombre_completo(String nombre_completo) {
+        this.nombre_completo = nombre_completo;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 }

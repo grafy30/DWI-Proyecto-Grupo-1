@@ -21,11 +21,13 @@ public class RevisarContactoServlet extends HttpServlet {
 
         String id = request.getParameter("id_contacto");
         String estado = request.getParameter("estado");
+        String respuesta = request.getParameter("respuesta");
 
         if (id != null && estado != null) {
             ContactosBE contacto = logica.Read(id);
             if (contacto != null) {
                 contacto.setEstado(estado); // "Atendido"
+                contacto.setRespuesta(respuesta);
                 boolean actualizado = logica.Update(contacto);
                 if (actualizado) {
                     // Redirige a la tabla de solicitudes

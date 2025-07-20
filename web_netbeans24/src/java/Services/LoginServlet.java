@@ -24,12 +24,13 @@ public class LoginServlet extends HttpServlet {
             UsuariosDAO usuarioDAO = new UsuariosDAO();
             UsuariosBE user = usuarioDAO.login(usuario, password);
             if (user != null) {
+
+                // 👇 Aquí se arma el nombre completo antes de ponerlo en sesión
+                user.setNombre_completo(user.getNombres());
+
                 HttpSession session = request.getSession();
 
-                // SOLUCIÓN: Guardar el objeto completo UsuariosBE en la sesión
                 session.setAttribute("usuarioCompleto", user);
-
-                // Mantener también los datos individuales para compatibilidad
                 session.setAttribute("usuario", user.getNickname());
                 session.setAttribute("rol", user.getRol());
                 session.setAttribute("id_usuario", user.getId_usuario());

@@ -1,6 +1,7 @@
 package Services;
 
 import BusinessEntify.ContactosBE;
+import BusinessEntify.UsuariosBE;
 import BusinessLogic.ContactosBL;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -23,18 +24,24 @@ public class ContactoServlet extends HttpServlet {
         // ✅ RESPONDER MENSAJE desde revisar_contacto.jsp
         if ("responder".equals(accion)) {
             try {
-                // Asegúrate que estos nombres coinciden con los inputs del JSP
                 int idContacto = Integer.parseInt(request.getParameter("idContacto"));
                 String correoDestino = request.getParameter("correoDestino");
                 String respuesta = request.getParameter("respuesta");
 
-                // Actualizar estado a 'Atendido'
-                boolean actualizado = logica.marcarComoAtendido(idContacto);
+                boolean actualizado = logica.responderMensaje(idContacto, respuesta);
 
                 if (actualizado) {
-                    // Simular envío de correo (a futuro se puede reemplazar por JavaMail)
+                    // 🔄 Actualizar estado a "Atendido"
+                    ContactosBE contacto = logica.Read(String.valueOf(idContacto));
+                    if (contacto != null) {
+                        contacto.setEstado("Atendido");
+                        logica.Update(contacto);
+                    }
+
+                    // 📧 Enviar correo simulado
                     String asunto = "Respuesta a tu solicitud";
-                    String cuerpo = "Hola,\n\nGracias por contactarnos. Te respondemos:\n\n" + respuesta + "\n\nSaludos,\nEquipo de Atención";
+                    String cuerpo = "Hola,\n\nGracias por contactarnos. Te respondemos:\n\n"
+                            + respuesta + "\n\nSaludos,\nEquipo de Atención";
                     enviarCorreo(correoDestino, asunto, cuerpo);
                 }
 
@@ -48,10 +55,10 @@ public class ContactoServlet extends HttpServlet {
             }
         }
 
-        // ✅ REGISTRO desde Contacto.jsp
-        String nombre = request.getParameter("fullname");
-        String correo = request.getParameter("email");
-        String mensaje = request.getParameter("message");
+        // ✅ REGISTRO desde Contacto.jsp o nuevo_mensaje.jsp
+        String nombre = request.getParameter("nombre");
+        String correo = request.getParameter("correo");
+        String mensaje = request.getParameter("mensaje");
 
         if (nombre != null && correo != null && mensaje != null) {
             ContactosBE contacto = new ContactosBE();
@@ -60,13 +67,21 @@ public class ContactoServlet extends HttpServlet {
             contacto.setMensaje(mensaje);
             contacto.setEstado("Pendiente");
 
+            // ⏬ Verifica si hay un usuario logueado (registrado) para guardar su ID
+            HttpSession session = request.getSession();
+            UsuariosBE usuario = (UsuariosBE) session.getAttribute("usuarioCompleto");
+
+            if (usuario != null) {
+                contacto.setId_usuario(usuario.getId_usuario());
+            }
+
             boolean resultado = logica.Create(contacto);
 
             if (resultado) {
-                response.sendRedirect("Contacto.jsp?enviado=true");
+                response.sendRedirect("welcome_usuario.jsp");
             } else {
                 request.setAttribute("mensaje", "❌ No se pudo registrar el mensaje.");
-                request.getRequestDispatcher("Contacto.jsp").forward(request, response);
+                request.getRequestDispatcher("welcome_usuario.jsp").forward(request, response);
             }
         }
     }

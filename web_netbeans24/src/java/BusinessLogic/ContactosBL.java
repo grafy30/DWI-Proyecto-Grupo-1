@@ -4,6 +4,7 @@ import BusinessEntify.ContactosBE;
 import DataAccessObject.ContactosDAO;
 import BusinessLogic.IBaseBL;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ContactosBL implements IBaseBL<ContactosBE> {
 
@@ -38,9 +39,19 @@ public class ContactosBL implements IBaseBL<ContactosBE> {
         return contactoDAO.Delete(input);
     }
 
-    // 🚀 Método adicional para marcar como atendido
-    public boolean marcarComoAtendido(int idContacto) {
-        return contactoDAO.marcarComoAtendido(idContacto);
+    // ✅ Método para responder mensaje y cambiar estado
+    public boolean responderMensaje(int idContacto, String respuesta) {
+        return contactoDAO.actualizarRespuestaYEstado(idContacto, respuesta);
     }
-}
 
+    public List<ContactosBE> listarRespondidosPorCorreo(String correo) {
+        ContactosDAO dao = new ContactosDAO();
+        return dao.listarRespondidosPorCorreo(correo);
+    }
+
+
+    public List<ContactosBE> ReadAtendidos() {
+        return contactoDAO.ReadAtendidos(); // Llama al DAO para leer solo los atendidos
+    }
+
+}
