@@ -2,7 +2,6 @@ package Services;
 
 import BusinessEntify.ServiciosBE;
 import BusinessLogic.ServiciosBL;
-
 import java.io.IOException;
 import java.io.InputStream;
 import javax.imageio.ImageIO;
@@ -26,11 +25,11 @@ public class ServiciosServlet extends HttpServlet {
         String id = request.getParameter("id_servicio");
         ServiciosBE servicio;
         if (id != null && !id.isEmpty()) {
-            servicio = logica.Read(id);
+            servicio = logica.Read(id);            
         } else {
             servicio = new ServiciosBE();
         }
-        request.setAttribute("servicio", servicio);
+        request.setAttribute("servicios", servicio);
         request.getRequestDispatcher("registrar_servicios.jsp").forward(request, response);
     }
 
@@ -52,7 +51,7 @@ public class ServiciosServlet extends HttpServlet {
 
         String id_servicio = request.getParameter("id_servicio");
         int id_categoria = Integer.parseInt(request.getParameter("id_categoria"));
-        String nombre = request.getParameter("nombre");
+        String nombre = request.getParameter("nombre_servicio");
         String descripcion = request.getParameter("descripcion");
         double precio_base = Double.parseDouble(request.getParameter("precio_base"));
         int duracion_estimada = Integer.parseInt(request.getParameter("duracion_estimada"));

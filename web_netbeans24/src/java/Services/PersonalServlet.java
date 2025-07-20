@@ -2,7 +2,6 @@ package Services;
 
 import BusinessEntify.PersonalBE;
 import BusinessLogic.PersonalBL;
-
 import java.io.IOException;
 import java.io.InputStream;
 import javax.imageio.ImageIO;

@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ include file="INCLUDE/header_links.jsp" %>
-<%@ page import="BusinessEntify.ServiciosBE" %>
 <%
-    ServiciosBE servicio = (ServiciosBE) request.getAttribute("servicio");
+    BusinessEntify.ServiciosBE servicio = (BusinessEntify.ServiciosBE) request.getAttribute("servicios");
     if (servicio == null) {
-        servicio = new ServiciosBE();
+        servicio = new BusinessEntify.ServiciosBE();
     }
-    boolean esEdicion = servicio.getId_servicio() > 0;
+    boolean esEdicion = servicio.getId_servicio()> 0;
     String mensaje = (String) request.getAttribute("mensaje");
 %>
 <!DOCTYPE html>
@@ -43,14 +42,14 @@
 
                     <div class="mb-3">
                         <label for="categoria" class="form-label">ID de Categoría</label>
-                        <input type="number" name="id_categoria" id="categoria" class="form-control" placeholder="Id Categoria"
+                        <input type="text" name="id_categoria" id="categoria" class="form-control" placeholder="Id Categoria"
                                value="<%= servicio.getId_categoria() > 0 ? servicio.getId_categoria() : ""%>" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre del Servicio</label>
-                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre del Servicio"
-                               value="<%= servicio.getNombre_servicio()!= null ? servicio.getNombre_servicio(): ""%>" required>
+                        <input type="text" name="nombre_servicio" id="nombre" class="form-control" placeholder="Nombre del Servicio"
+                               value="<%= servicio.getNombre_servicio() != null ? servicio.getNombre_servicio() : ""%>" required>
                     </div>
 
                     <div class="mb-3">
@@ -60,19 +59,22 @@
 
                     <div class="mb-3">
                         <label for="precio" class="form-label">Precio Base</label>
-                        <input type="number" step="0.01" name="precio_base" id="precio" class="form-control" placeholder="Precio Base"
-                               value="<%= servicio.getPrecio_base()> 0 ? servicio.getPrecio_base() : ""%>" required>
+                        <input type="text" name="precio_base" id="precio" class="form-control" placeholder="Precio Base"
+                               value="<%= servicio.getPrecio_base() > 0 ? String.format("%.2f", servicio.getPrecio_base()) : ""%>" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="duracion" class="form-label">Duración Estimada (días)</label>
-                        <input type="number" name="duracion_estimada" id="duracion" class="form-control" placeholder="Duracion"
+                        <input type="text" name="duracion_estimada" id="duracion" class="form-control" placeholder="Duracion"
                                value="<%= servicio.getDuracion_estimada() > 0 ? servicio.getDuracion_estimada() : ""%>" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="imagen" class="form-label">Imagen</label>
                         <input type="file" name="imagen" id="imagen" class="form-control" accept="image/*" <%= esEdicion ? "" : "required"%>>
+                        <% if (esEdicion && servicio.getImagen() != null) { %>
+                        <small class="form-text text-muted">Imagen actual cargada. Selecciona una nueva si deseas cambiarla.</small>
+                        <% } %>
                     </div>
 
                     <div class="d-grid gap-2">
@@ -96,3 +98,4 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
+

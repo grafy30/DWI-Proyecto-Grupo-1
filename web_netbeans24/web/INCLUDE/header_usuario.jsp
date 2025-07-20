@@ -19,7 +19,7 @@
                 </li>
 
                 <!-- Mis servicios contratados -->
-                <li class="nav-item">
+                <li class="nav-item dropdown">
                     <a class="nav-link" href="mis_servicios.jsp">
                         <i class="fas fa-clipboard-list me-1"></i> Mis Servicios
                         <span class="badge bg-danger rounded-pill ms-1">3</span>
@@ -28,7 +28,8 @@
 
                 <!-- Mensajes con indicador de no leídos -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle position-relative" href="#" id="mensajesDropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="mensajeDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-envelope me-1"></i> Mensajes
                         <span class="badge bg-danger badge-notification">5</span>
                     </a>
@@ -41,7 +42,7 @@
                                 <i class="fas fa-paper-plane me-2"></i>Enviados
                             </a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="nuevo_mensaje.jsp">
+                        <li><a class="dropdown-item" href="Contacto.jsp">
                                 <i class="fas fa-edit me-2"></i>Nuevo mensaje
                             </a></li>
                     </ul>

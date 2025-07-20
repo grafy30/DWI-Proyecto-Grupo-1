@@ -28,7 +28,7 @@
                                 <i class="fas fa-drafting-compass fa-3x text-primary mb-3"></i>
                                 <h5 class="card-title">Diseño</h5>
                                 <p class="card-text">Planificación y modelación Arquitectónica conceptual</p>
-                                <a href="${pageContext.request.contextPath}/products?category=1" class="btn btn-outline-primary">
+                                <a href="diseño.jsp" class="btn btn-outline-primary">
                                     Ver Servicios
                                 </a>
                             </div>

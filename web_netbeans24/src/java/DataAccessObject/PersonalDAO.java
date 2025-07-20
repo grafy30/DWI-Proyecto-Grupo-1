@@ -146,6 +146,7 @@ public class PersonalDAO extends ConexionMySQL implements IBaseDAO<PersonalBE>{
             }
         } catch (Exception e) {
             System.out.println("⚠️ Error al convertir imagen a bytes: " + e.getMessage());
+            e.printStackTrace(); 
         }
         return null;
     }

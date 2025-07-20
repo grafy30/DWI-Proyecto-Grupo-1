@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Administrar Servicios</title>
+        <title>Lista de Servicios</title>
         <%@ include file="INCLUDE/header_links.jsp" %>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -69,7 +69,7 @@
                                     <% }%>
                                 </td>
                                 <td>
-                                    <a href="${pageContext.request.contextPath}/ServicioServlet?id_servicio=<%= id%>">
+                                    <a href="${pageContext.request.contextPath}/ServiciosServlet?id_servicio=<%= id%>">
                                         <button type="button" class="btn btn-success btn-custom btn-sm">
                                             <i class="fas fa-pen"></i> Editar
                                         </button>
@@ -102,7 +102,7 @@
                     cancelButtonText: 'Cancelar'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        fetch('ServicioServlet', {
+                        fetch('ServiciosServlet', {
                             method: 'POST',
                             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                             body: 'accion=eliminar&idServicio=' + encodeURIComponent(idServicio)
