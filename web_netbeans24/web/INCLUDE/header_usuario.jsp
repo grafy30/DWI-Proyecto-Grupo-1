@@ -13,7 +13,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Servicios disponibles -->
                 <li class="nav-item">
-                    <a class="nav-link" href="servicios.jsp">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/diseño_usuario.jsp">
                         <i class="fas fa-list-alt me-1"></i> Servicios
                     </a>
                 </li>

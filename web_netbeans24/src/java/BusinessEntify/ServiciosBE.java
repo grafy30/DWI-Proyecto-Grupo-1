@@ -1,4 +1,5 @@
 package BusinessEntify;
+import java.math.BigDecimal;
 import javax.swing.ImageIcon;
 
 public class ServiciosBE {
@@ -7,9 +8,10 @@ public class ServiciosBE {
     private int id_categoria;
     private String nombre_servicio;
     private String descripcion;
-    private double precio_base;
+    private BigDecimal precio_base;
     private int duracion_estimada; // en días
     private ImageIcon imagen;
+    private transient String imagenBase64;
     private String estado;   
 
     // Constructor vacío
@@ -49,14 +51,14 @@ public class ServiciosBE {
         this.descripcion = descripcion;
     }
 
-    public double getPrecio_base() {
+    public BigDecimal getPrecio_base() {
         return precio_base;
     }
 
-    public void setPrecio_base(double precio_base) {
+    public void setPrecio_base(BigDecimal precio_base) {
         this.precio_base = precio_base;
-    }
-
+    }  
+    
     public int getDuracion_estimada() {
         return duracion_estimada;
     }
@@ -80,4 +82,12 @@ public class ServiciosBE {
     public void setEstado(String estado) {
         this.estado = estado;
     }          
+
+    public String getImagenBase64() {
+        return imagenBase64;
+    }
+
+    public void setImagenBase64(String imagenBase64) {
+        this.imagenBase64 = imagenBase64;
+    }
 }

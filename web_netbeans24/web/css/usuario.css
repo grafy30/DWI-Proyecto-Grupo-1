@@ -1,0 +1,150 @@
+
+/* NAV */
+.bg-gradient-admin {
+    background: linear-gradient(90deg, #0d47a1 0%, #1976d2 70%, #42a5f5 100%) !important;
+}
+.navbar-brand svg {
+    vertical-align: middle;
+    background: transparent;
+    box-shadow: 0 0 4px #1976d2;
+}
+.navbar-brand .bg-white {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(13,71,161,.14);
+}
+.navbar {
+    border-radius: 0 0 1.5rem 1.5rem;
+}
+
+/* Formulario y botones */
+.form-card {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form-title {
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    text-align: center;
+}
+/* Estilo para los labels del formulario */
+.form-label {
+    display: block;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #34495e;
+    margin-bottom: 6px;
+    letter-spacing: 0.01em;
+}
+
+.form-card input,
+.form-card textarea,
+.form-card select {
+    margin-bottom: 18px;
+}
+.btn-custom {
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-custom:hover {
+    background-color: #0a58ca;
+}
+
+.btn-outline {
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.alert {
+    transition: opacity 0.5s ease-in-out;
+    border-radius: 10px;
+}
+
+.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+/* tabla */
+.form-card.full-width {
+    max-width: 100% !important;
+    padding: 40px;
+}
+.tabla th, .tabla td {
+    white-space: nowrap;
+    min-width: 120px;
+}
+.table-responsive {
+    margin-bottom: 0;
+}
+
+/* BOTONES PERSONALIZADOS ADMIN */
+
+.btn-custom {
+    font-size: 1.08rem;
+    font-weight: 500;
+    border-radius: 0.6rem;
+    padding: 0.5rem 1.1rem;
+    box-shadow: 0 4px 14px 0 rgba(34,139,34,0.08);
+    transition: transform 0.08s, box-shadow 0.08s;
+}
+.btn-custom:active {
+    transform: scale(0.97);
+    box-shadow: none;
+}
+
+/* Botón REGISTRAR - verde */
+.btn-success {
+    background-color: #28a745 !important;
+    border: none;
+    color: #fff !important;
+}
+.btn-success:hover, .btn-success:focus {
+    background-color: #218838 !important;
+}
+
+/* Botón IMPRIMIR/EXPORTAR - naranja */
+.btn-warning {
+    background-color: #ff9800 !important;   /* Naranja fuerte, más vibrante que el amarillo Bootstrap */
+    border: none;
+    color: #fff !important;
+}
+.btn-warning:hover, .btn-warning:focus {
+    background-color: #e65100 !important;
+}
+
+/* Botón ELIMINAR - rojo */
+.btn-danger {
+    background-color: #dc3545 !important;
+    border: none;
+    color: #fff !important;
+}
+.btn-danger:hover, .btn-danger:focus {
+    background-color: #c82333 !important;
+}
+
+
+label.form-label {
+    display: block !important;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #222;
+    margin-bottom: 6px;
+}

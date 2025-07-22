@@ -17,7 +17,7 @@ public class ServiciosDAO extends ConexionMySQL implements IBaseDAO<ServiciosBE>
             ps.setInt(1, input.getId_categoria());
             ps.setString(2, input.getNombre_servicio());
             ps.setString(3, input.getDescripcion());
-            ps.setDouble(4, input.getPrecio_base());
+            ps.setBigDecimal(4, input.getPrecio_base());
             ps.setInt(5, input.getDuracion_estimada());
 
             byte[] imageBytes = getImageBytes(input.getImagen());
@@ -84,7 +84,7 @@ public class ServiciosDAO extends ConexionMySQL implements IBaseDAO<ServiciosBE>
             ps.setInt(1, servicio.getId_categoria());
             ps.setString(2, servicio.getNombre_servicio());
             ps.setString(3, servicio.getDescripcion());
-            ps.setDouble(4, servicio.getPrecio_base());
+            ps.setBigDecimal(4, servicio.getPrecio_base());
             ps.setInt(5, servicio.getDuracion_estimada());
 
             byte[] imageBytes = getImageBytes(servicio.getImagen());
@@ -111,7 +111,7 @@ public class ServiciosDAO extends ConexionMySQL implements IBaseDAO<ServiciosBE>
 
         } catch (Exception e) {
             System.out.println("❌ Error al eliminar el servicio: " + e.getMessage());
-            e.printStackTrace(); 
+            e.printStackTrace();
             return false;
         }
     }
@@ -122,7 +122,7 @@ public class ServiciosDAO extends ConexionMySQL implements IBaseDAO<ServiciosBE>
         servicios.setId_categoria(rs.getInt("id_categoria"));
         servicios.setNombre_servicio(rs.getString("nombre"));
         servicios.setDescripcion(rs.getString("descripcion"));
-        servicios.setPrecio_base(rs.getDouble("precio_base"));
+        servicios.setPrecio_base(rs.getBigDecimal("precio_base"));
         servicios.setDuracion_estimada(rs.getInt("duracion_estimada"));
 
         byte[] imgBytes = rs.getBytes("imagen");
@@ -131,7 +131,7 @@ public class ServiciosDAO extends ConexionMySQL implements IBaseDAO<ServiciosBE>
                 ImageIcon imagen = ImagenUtils.bytesToIcon(imgBytes);
                 servicios.setImagen(imagen);
             } catch (Exception e) {
-                System.out.println("⚠️ Error al convertir bytes a imagen para servicio ID " + servicios.getId_servicio() + ": " + e.getMessage());                
+                System.out.println("⚠️ Error al convertir bytes a imagen para servicio ID " + servicios.getId_servicio() + ": " + e.getMessage());
             }
         }
         return servicios;
@@ -145,8 +145,25 @@ public class ServiciosDAO extends ConexionMySQL implements IBaseDAO<ServiciosBE>
             }
         } catch (Exception e) {
             System.out.println("⚠️ Error al convertir imagen a bytes: " + e.getMessage());
-            e.printStackTrace(); 
+            e.printStackTrace();
         }
         return null;
+    }
+
+    public ArrayList<ServiciosBE> buscarPorCategoria(int idCategoria) {
+        ArrayList<ServiciosBE> lista = new ArrayList<>();
+        String sql = "SELECT * FROM servicios WHERE id_categoria = ?";
+
+        try (Connection con = getConexion(); PreparedStatement ps = con.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                lista.add(toEntity(rs));
+            }
+
+        } catch (Exception e) {
+            System.out.println("❌ Error al buscar por categoria: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return lista;
     }
 }

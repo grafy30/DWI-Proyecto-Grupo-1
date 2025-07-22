@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import javax.swing.ImageIcon;
 import java.awt.image.BufferedImage;
+import java.math.BigDecimal;
 
 @WebServlet("/ServiciosServlet")
 @MultipartConfig(maxFileSize = 1024 * 1024 * 5) // Máx. 5MB
@@ -53,7 +54,7 @@ public class ServiciosServlet extends HttpServlet {
         int id_categoria = Integer.parseInt(request.getParameter("id_categoria"));
         String nombre = request.getParameter("nombre_servicio");
         String descripcion = request.getParameter("descripcion");
-        double precio_base = Double.parseDouble(request.getParameter("precio_base"));
+        BigDecimal precio_base = new BigDecimal(request.getParameter("precio_base").trim());
         int duracion_estimada = Integer.parseInt(request.getParameter("duracion_estimada"));
         Part imagenPart = request.getPart("imagen");
 

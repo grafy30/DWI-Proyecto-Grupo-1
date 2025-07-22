@@ -1,3 +1,4 @@
+<%@page import="java.math.BigDecimal"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ include file="INCLUDE/header_links.jsp" %>
 <%
@@ -59,8 +60,14 @@
 
                     <div class="mb-3">
                         <label for="precio" class="form-label">Precio Base</label>
+                        <%
+                            String precioValue = "";
+                            if (servicio.getPrecio_base() != null && servicio.getPrecio_base().compareTo(BigDecimal.ZERO) > 0) {
+                                precioValue = String.format("%.2f", servicio.getPrecio_base());
+                            }
+                        %>
                         <input type="text" name="precio_base" id="precio" class="form-control" placeholder="Precio Base"
-                               value="<%= servicio.getPrecio_base() > 0 ? String.format("%.2f", servicio.getPrecio_base()) : ""%>" required>
+                               value="<%= precioValue %>" required>
                     </div>
 
                     <div class="mb-3">

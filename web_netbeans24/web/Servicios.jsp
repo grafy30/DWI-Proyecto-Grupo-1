@@ -17,7 +17,21 @@
                 Contamos con una amplia experiencia y compromiso en el desarrollo de diseños y proyectos exclusivos, funcionales y de alta calidad, logrando superar las expectativas de nuestros clientes, causando gran satisfacción.
             </p>
         </section>
-
+        
+        <!-- Servicios Destacados -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">Servicios Destacados</h2>
+                <div class="row" id="featured-products">
+                    <!-- Los productos se cargarán dinámicamente -->
+                </div>
+                <div class="text-center mt-4">
+                    <a href="${pageContext.request.contextPath}/diseño.jsp" class="btn btn-primary">
+                        Ver Todos los servicios
+                    </a>
+                </div>
+            </div>
+        </section>
         <section class="py-5">
             <div class="container">
                 <h2 class="text-center mb-5">Categorías Destacadas</h2>
@@ -58,21 +72,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Servicios Destacados -->
-        <section class="py-5 bg-light">
-            <div class="container">
-                <h2 class="text-center mb-5">Servicios Destacados</h2>
-                <div class="row" id="featured-products">
-                    <!-- Los productos se cargarán dinámicamente -->
-                </div>
-                <div class="text-center mt-4">
-                    <a href="${pageContext.request.contextPath}/products" class="btn btn-primary">
-                        Ver Todos los servicios
-                    </a>
                 </div>
             </div>
         </section>

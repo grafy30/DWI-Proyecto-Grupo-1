@@ -105,7 +105,7 @@
     </head>
 
     <body>
-        <%@ include file="INCLUDE/header.jsp" %>              
+        <%@ include file="INCLUDE/header_usuario.jsp" %>              
 
         <section class="py-4">
             <div class="container">
@@ -224,7 +224,7 @@
                                                     </small>
                                                 </div>
                                                 <div class="d-grid gap-2">
-                                                    <a href="detalle_servicio.jsp?id=${servicio.id_servicio}" 
+                                                    <a href="detalle_servicio_usuarios.jsp?id=${servicio.id_servicio}" 
                                                        class="btn btn-outline-primary btn-sm">
                                                         <i class="fas fa-eye me-1"></i> Ver Detalles
                                                     </a>
@@ -253,7 +253,7 @@
                 </div>
             </div>
         </section>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>                        
         <%@ include file="INCLUDE/footer.jsp" %>
 
         <script>

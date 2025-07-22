@@ -5,14 +5,14 @@ import DataAccessObject.ServiciosDAO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServiciosBL implements IBaseBL<ServiciosBE>{
+public class ServiciosBL implements IBaseBL<ServiciosBE> {
 
     private final ServiciosDAO serviciosDAO;
 
     public ServiciosBL() {
         this.serviciosDAO = new ServiciosDAO();
     }
-        
+
     @Override
     public boolean Create(ServiciosBE input) {
         return serviciosDAO.Create(input);
@@ -36,5 +36,9 @@ public class ServiciosBL implements IBaseBL<ServiciosBE>{
     @Override
     public boolean Delete(String input) {
         return serviciosDAO.Delete(input);
-    }      
+    }
+
+    public ArrayList<ServiciosBE> buscarPorCategoria(int idCategoria) {
+        return serviciosDAO.buscarPorCategoria(idCategoria);
+    }
 }
