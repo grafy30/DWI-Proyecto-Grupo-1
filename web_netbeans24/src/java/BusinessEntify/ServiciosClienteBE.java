@@ -9,20 +9,19 @@ public class ServiciosClienteBE {
     private int id_servicio_cliente;
     private int id_cliente;
     private int id_servicio;
-    private Integer id_personal_asignado; // Puede ser null
-    private Integer id_venta; // Puede ser null por ON DELETE SET NULL
-    private Timestamp fecha_contratacion;
-    private Date fecha_inicio;
-    private Date fecha_fin;
-    private String estado; // ENUM: 'Cotización', 'Contratado', 'En Proceso', 'Completado', 'Cancelado'
-    private BigDecimal precio_final;
-    private String detalles;
-    private Integer calificacion; // TINYINT, puede ser null
-    private String comentarios;
+    private Integer id_personal_asignado;  // Personal opcional
+    private Integer id_venta;              // Se llena al contratar
+    private Timestamp fecha_contratacion;  // Fecha y hora exactas
+    private Date fecha_inicio;             // Inicio del servicio
+    private Date fecha_fin;                // Fin estimado o real
+    private String estado;                 // Cotización, Contratado, etc.
+    private BigDecimal precio_final;       // Precio acordado
+    private String detalles;               // Descripción o condiciones adicionales
+    private Integer calificacion;          // Puede ser null si no hay calificación
+    private String comentarios;            // Comentarios del cliente
 
     // Constructor vacío
-    public ServiciosClienteBE() {
-    }
+    public ServiciosClienteBE() {}
 
     // Getters y Setters
     public int getId_servicio_cliente() {
@@ -127,5 +126,9 @@ public class ServiciosClienteBE {
 
     public void setComentarios(String comentarios) {
         this.comentarios = comentarios;
+    }
+
+    public void setCantidad(Integer value) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

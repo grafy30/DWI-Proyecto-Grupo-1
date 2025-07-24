@@ -228,8 +228,8 @@
                                                        class="btn btn-outline-primary btn-sm">
                                                         <i class="fas fa-eye me-1"></i> Ver Detalles
                                                     </a>
-                                                    <button class="btn btn-success btn-sm btn-add-to-cart" 
-                                                            data-servicio-id="${servicio.id_servicio}">
+                                                    <button class="btn btn-success btn-sm contratar-btn" 
+                                                            data-id="${servicio.id_servicio}">
                                                         <i class="fas fa-cart-plus me-1"></i> Contratar
                                                     </button>
                                                 </div>
@@ -253,31 +253,90 @@
                 </div>
             </div>
         </section>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <%@ include file="INCLUDE/footer.jsp" %>
 
-        <script>
-            // Script para manejar el botón de contratar
-            document.querySelectorAll('.btn-add-to-cart').forEach(button => {
-                button.addEventListener('click', function () {
-                    const servicioId = this.getAttribute('data-servicio-id');
-                    // Aquí puedes agregar lógica para agregar al carrito
-                    alert('Servicio ID ' + servicioId + ' agregado a tu lista de contratación');
-                });
-            });
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        
+<!-- SweetAlert -->
 
-            // Cambiar entre vista de lista y grid
-            document.querySelector('.grid-view-btn').addEventListener('click', function () {
-                document.getElementById('servicios-container').classList.remove('list-view-container');
-                document.querySelector('.grid-view-btn').classList.add('active');
-                document.querySelector('.list-view-btn').classList.remove('active');
-            });
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-            document.querySelector('.list-view-btn').addEventListener('click', function () {
-                document.getElementById('servicios-container').classList.add('list-view-container');
-                document.querySelector('.list-view-btn').classList.add('active');
-                document.querySelector('.grid-view-btn').classList.remove('active');
-            });
-        </script>
+<script>
+  // Función para agregar al carrito
+  function agregarAlCarrito(servicioId) {
+    fetch('agregarAlCarrito', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: 'servicioId=' + encodeURIComponent(servicioId)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === "ok") {
+        // Actualiza o crea el contador del carrito
+        let contador = document.getElementById("contadorCarrito");
+
+        if (contador) {
+          contador.textContent = data.totalItems;
+        } else {
+          // Si el contador no existe aún (porque no había ítems en la sesión)
+          const carritoLink = document.querySelector(".fa-shopping-cart").parentNode;
+          const badge = document.createElement("span");
+          badge.id = "contadorCarrito";
+          badge.className = "position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger";
+          badge.innerHTML = `${data.totalItems}<span class="visually-hidden">productos en el carrito</span>`;
+          carritoLink.appendChild(badge);
+        }
+
+        // SweetAlert de éxito
+        Swal.fire({
+          icon: 'success',
+          title: 'Agregado al carrito',
+          text: '¡El servicio se agregó correctamente!',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'No se pudo agregar al carrito.'
+        });
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error de red',
+        text: 'Inténtalo de nuevo más tarde.'
+      });
+    });
+  }
+
+  // Botones de contratación
+  document.querySelectorAll(".contratar-btn").forEach(button => {
+    button.addEventListener("click", function () {
+      const servicioId = this.getAttribute("data-id");
+      agregarAlCarrito(servicioId);
+    });
+  });
+  
+
+  // Vista de lista y grid
+  document.querySelector('.grid-view-btn').addEventListener('click', function () {
+    document.getElementById('servicios-container').classList.remove('list-view-container');
+    document.querySelector('.grid-view-btn').classList.add('active');
+    document.querySelector('.list-view-btn').classList.remove('active');
+  });
+
+  document.querySelector('.list-view-btn').addEventListener('click', function () {
+    document.getElementById('servicios-container').classList.add('list-view-container');
+    document.querySelector('.list-view-btn').classList.add('active');
+    document.querySelector('.grid-view-btn').classList.remove('active');
+  });
+</script>
+
     </body>
 </html>

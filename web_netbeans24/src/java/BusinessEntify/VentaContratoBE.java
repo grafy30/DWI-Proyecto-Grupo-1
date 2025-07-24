@@ -2,7 +2,11 @@ package BusinessEntify;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.List;
 
+/**
+ * Representa un contrato de venta con su información general y los servicios asociados.
+ */
 public class VentaContratoBE {
 
     private int id_venta;
@@ -12,12 +16,14 @@ public class VentaContratoBE {
     private Date fecha_inicio;
     private Date fecha_fin;
     private String estado;
-    private Integer cliente_id; // Puede ser null por ON DELETE SET NULL
+    private Integer cliente_id;
     private BigDecimal presupuesto;
 
+    // Lista de servicios contratados (opcional)
+    private List<ServiciosClienteBE> serviciosClienteBE;
+
     // Constructor vacío
-    public VentaContratoBE() {
-    }
+    public VentaContratoBE() {}
 
     // Getters y Setters
     public int getId_venta() {
@@ -90,5 +96,13 @@ public class VentaContratoBE {
 
     public void setPresupuesto(BigDecimal presupuesto) {
         this.presupuesto = presupuesto;
+    }
+
+    public List<ServiciosClienteBE> getServiciosClienteBE() {
+        return serviciosClienteBE;
+    }
+
+    public void setServiciosClienteBE(List<ServiciosClienteBE> serviciosClienteBE) {
+        this.serviciosClienteBE = serviciosClienteBE;
     }
 }

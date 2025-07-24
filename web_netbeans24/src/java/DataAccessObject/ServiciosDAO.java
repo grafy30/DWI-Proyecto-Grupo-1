@@ -4,6 +4,7 @@ import BusinessEntify.ServiciosBE;
 import Util.ImagenUtils;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
 
 public class ServiciosDAO extends ConexionMySQL implements IBaseDAO<ServiciosBE> {
@@ -11,8 +12,9 @@ public class ServiciosDAO extends ConexionMySQL implements IBaseDAO<ServiciosBE>
     @Override
     public boolean Create(ServiciosBE input) {
         String sql = "INSERT INTO servicios (id_categoria, nombre, descripcion, precio_base, duracion_estimada, imagen) "
-                + "VALUES (?, ?, ?, ?, ?, ?)";
-        try (Connection con = getConexion(); PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                   + "VALUES (?, ?, ?, ?, ?, ?)";
+        try (Connection con = getConexion(); 
+             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             ps.setInt(1, input.getId_categoria());
             ps.setString(2, input.getNombre_servicio());
@@ -63,7 +65,9 @@ public class ServiciosDAO extends ConexionMySQL implements IBaseDAO<ServiciosBE>
     public ArrayList<ServiciosBE> ReadAll() {
         ArrayList<ServiciosBE> lista = new ArrayList<>();
         String sql = "SELECT * FROM servicios";
-        try (Connection con = getConexion(); PreparedStatement ps = con.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+        try (Connection con = getConexion(); 
+             PreparedStatement ps = con.prepareStatement(sql); 
+             ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 lista.add(toEntity(rs));
@@ -89,7 +93,6 @@ public class ServiciosDAO extends ConexionMySQL implements IBaseDAO<ServiciosBE>
 
             byte[] imageBytes = getImageBytes(servicio.getImagen());
             ps.setBytes(6, imageBytes);
-
             ps.setInt(7, servicio.getId_servicio());
 
             return ps.executeUpdate() > 0;
@@ -137,7 +140,6 @@ public class ServiciosDAO extends ConexionMySQL implements IBaseDAO<ServiciosBE>
         return servicios;
     }
 
-    // Método auxiliar privado para reducir código repetido
     private byte[] getImageBytes(ImageIcon icon) {
         try {
             if (icon != null && icon.getImage() != null) {
@@ -153,11 +155,13 @@ public class ServiciosDAO extends ConexionMySQL implements IBaseDAO<ServiciosBE>
     public ArrayList<ServiciosBE> buscarPorCategoria(int idCategoria) {
         ArrayList<ServiciosBE> lista = new ArrayList<>();
         String sql = "SELECT * FROM servicios WHERE id_categoria = ?";
+        try (Connection con = getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
 
-        try (Connection con = getConexion(); PreparedStatement ps = con.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
-
-            while (rs.next()) {
-                lista.add(toEntity(rs));
+            ps.setInt(1, idCategoria); // Corrección aquí
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    lista.add(toEntity(rs));
+                }
             }
 
         } catch (Exception e) {
@@ -165,5 +169,9 @@ public class ServiciosDAO extends ConexionMySQL implements IBaseDAO<ServiciosBE>
             e.printStackTrace();
         }
         return lista;
+    }
+
+    public List<ServiciosBE> obtenerTodosLosServicios() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
