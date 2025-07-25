@@ -149,14 +149,15 @@ public class ContactosDAO extends ConexionMySQL implements IBaseDAO<ContactosBE>
 
         return result;
     }
-// LISTAR CORREOS RESPONDIDOS
 
+// LISTAR CORREOS RESPONDIDOS
     public ArrayList<ContactosBE> listarRespondidosPorCorreo(String correo) {
         ArrayList<ContactosBE> lista = new ArrayList<>();
         String sql = "SELECT * FROM contactos WHERE correo = ? AND estado = 'Atendido' ";
 
         try (Connection conn = getConexion(); PreparedStatement pst = conn.prepareStatement(sql)) {
 
+            System.out.println("Buscando mensajes respondidos del correo: " + correo);
             pst.setString(1, correo);
             ResultSet rs = pst.executeQuery();
 
@@ -177,6 +178,31 @@ public class ContactosDAO extends ConexionMySQL implements IBaseDAO<ContactosBE>
 
         return lista;
     }
+
+    public List<ContactosBE> listarPendientesPorCorreo(String correo) {
+    List<ContactosBE> lista = new ArrayList<>();
+    String sql = "SELECT * FROM contactos WHERE correo=? AND estado='pendiente'";
+
+    try (Connection conn = getConexion(); PreparedStatement pst = conn.prepareStatement(sql)) {
+        pst.setString(1, correo);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            ContactosBE c = new ContactosBE();
+            c.setId_contacto(rs.getInt("id_contacto"));
+            c.setNombre(rs.getString("nombre"));
+            c.setCorreo(rs.getString("correo"));
+            c.setMensaje(rs.getString("mensaje"));
+            c.setEstado(rs.getString("estado"));
+
+            lista.add(c);
+        }
+    } catch (Exception e) {
+        System.out.println("Error al listar pendientes: " + e.getMessage());
+    }
+
+    return lista;
+}
+
 
     public ArrayList<ContactosBE> obtenerMensajesAtendidosPorCorreo(String correo) {
         ArrayList<ContactosBE> lista = new ArrayList<>();

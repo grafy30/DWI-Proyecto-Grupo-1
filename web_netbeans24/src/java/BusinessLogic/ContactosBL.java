@@ -45,13 +45,19 @@ public class ContactosBL implements IBaseBL<ContactosBE> {
     }
 
     public List<ContactosBE> listarRespondidosPorCorreo(String correo) {
-        ContactosDAO dao = new ContactosDAO();
-        return dao.listarRespondidosPorCorreo(correo);
+        return contactoDAO.listarRespondidosPorCorreo(correo);
     }
-
 
     public List<ContactosBE> ReadAtendidos() {
         return contactoDAO.ReadAtendidos(); // Llama al DAO para leer solo los atendidos
+    }
+
+    public List<ContactosBE> listarPendientesPorCorreo(String correo) {
+        return contactoDAO.listarPendientesPorCorreo(correo);
+    }
+
+    public boolean actualizarRespuestaYEstado(int idContacto, String respuesta) {
+        return contactoDAO.actualizarRespuestaYEstado(idContacto, respuesta);
     }
 
 }

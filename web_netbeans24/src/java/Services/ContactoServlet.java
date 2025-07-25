@@ -4,6 +4,7 @@ import BusinessEntify.ContactosBE;
 import BusinessEntify.UsuariosBE;
 import BusinessLogic.ContactosBL;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -21,6 +22,26 @@ public class ContactoServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String accion = request.getParameter("accion");
 
+        ContactosBL logica = new ContactosBL(); // ⚠️ Esto lo necesitas para que funcione todo (agrégalo si aún no está)
+
+        // ✅ ELIMINAR MENSAJE
+        if ("eliminar".equals(accion)) {
+            try {
+                String idContacto = request.getParameter("idContacto");
+                boolean eliminado = logica.Delete(idContacto);
+
+                if (eliminado) {
+                    response.getWriter().write("ok");
+                } else {
+                    response.getWriter().write("error");
+                }
+            } catch (Exception e) {
+                System.out.println("❌ Error en eliminación desde ContactoServlet: " + e.getMessage());
+                response.getWriter().write("error");
+            }
+            return; // ⛔ Detenemos aquí para que no continúe con el resto
+        }
+
         // ✅ RESPONDER MENSAJE desde revisar_contacto.jsp
         if ("responder".equals(accion)) {
             try {
@@ -31,13 +52,6 @@ public class ContactoServlet extends HttpServlet {
                 boolean actualizado = logica.responderMensaje(idContacto, respuesta);
 
                 if (actualizado) {
-                    // 🔄 Actualizar estado a "Atendido"
-                    ContactosBE contacto = logica.Read(String.valueOf(idContacto));
-                    if (contacto != null) {
-                        contacto.setEstado("Atendido");
-                        logica.Update(contacto);
-                    }
-
                     // 📧 Enviar correo simulado
                     String asunto = "Respuesta a tu solicitud";
                     String cuerpo = "Hola,\n\nGracias por contactarnos. Te respondemos:\n\n"
@@ -83,6 +97,30 @@ public class ContactoServlet extends HttpServlet {
                 request.setAttribute("mensaje", "❌ No se pudo registrar el mensaje.");
                 request.getRequestDispatcher("welcome_usuario.jsp").forward(request, response);
             }
+        }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        HttpSession session = request.getSession();
+        UsuariosBE usuario = (UsuariosBE) session.getAttribute("usuarioCompleto");
+
+        if (usuario != null) {
+            String correo = usuario.getCorreo();
+            ContactosBL logica = new ContactosBL();
+            System.out.println("Correo del usuario logueado: " + correo);
+
+            List<ContactosBE> pendientes = logica.listarPendientesPorCorreo(correo);
+            List<ContactosBE> atendidos = logica.listarRespondidosPorCorreo(correo);
+
+            request.setAttribute("pendientes", pendientes);
+            request.setAttribute("atendidos", atendidos);
+
+            request.getRequestDispatcher("mensajes_respuesta.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("login.jsp");
         }
     }
 

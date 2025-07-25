@@ -40,7 +40,7 @@ public class RevisarContactoServlet extends HttpServlet {
         // En caso de error
         request.setAttribute("mensaje", "❌ No se pudo actualizar el estado del mensaje.");
         request.getRequestDispatcher("solicitudes_contacto.jsp").forward(request, response);
-    }
+    }   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

@@ -29,7 +29,7 @@
                         <%= mensaje%>
                     </div>
                     <% } %>
-                    <form action="${pageContext.request.contextPath}/ContactoServlet" method="POST">
+                    <form action="${pageContext.request.contextPath}/ContactoSLServlet" method="POST">
                         <div class="mb-3">
                             <input type="text" name="fullname" class="form-control" placeholder="Nombre completo" required>
                         </div>
@@ -56,7 +56,8 @@
 
         <!-- Popup -->
         <div id="popup" class="popup">
-            <p>Mensaje Enviado</p>
+            <p>GRACIAS POR ENVIAR SU CONSULTA </p>
+            <p>SE LE RESPONDERA LO MAS RAPIDO POSIBLE</p>
         </div>     
         <%
             String enviado = request.getParameter("enviado");

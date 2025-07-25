@@ -34,7 +34,7 @@
                         <span class="badge bg-danger badge-notification">5</span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="mensajesDropdown">
-                        <li><a class="dropdown-item" href="mensajes_respuesta.jsp">
+                        <li><a class="dropdown-item" href="ContactoServlet">
                                 <i class="fas fa-inbox me-2"></i>Bandeja de entrada
                                 <span class="badge bg-primary float-end">5</span>
                             </a></li>

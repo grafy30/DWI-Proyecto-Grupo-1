@@ -194,6 +194,7 @@ public class UsuariosDAO extends ConexionMySQL implements IBaseDAO<UsuariosBE> {
         user.setPassword(rs.getString("password"));
         user.setGoogle_id(rs.getString("google_id"));
         user.setRol(rs.getString("rol"));
+        user.setCorreo(rs.getString("email"));
         return user;
     }
 

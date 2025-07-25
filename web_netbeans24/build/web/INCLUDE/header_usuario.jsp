@@ -13,7 +13,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Servicios disponibles -->
                 <li class="nav-item">
-                    <a class="nav-link" href="servicios.jsp">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/diseño_usuario.jsp">
                         <i class="fas fa-list-alt me-1"></i> Servicios
                     </a>
                 </li>
@@ -34,7 +34,7 @@
                         <span class="badge bg-danger badge-notification">5</span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="mensajesDropdown">
-                        <li><a class="dropdown-item" href="mensajes_respuesta.jsp">
+                        <li><a class="dropdown-item" href="ContactoServlet">
                                 <i class="fas fa-inbox me-2"></i>Bandeja de entrada
                                 <span class="badge bg-primary float-end">5</span>
                             </a></li>
