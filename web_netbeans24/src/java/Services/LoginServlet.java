@@ -23,13 +23,12 @@ public class LoginServlet extends HttpServlet {
         try {
             UsuariosDAO usuarioDAO = new UsuariosDAO();
             UsuariosBE user = usuarioDAO.login(usuario, password);
-            if (user != null) {
 
+            if (user != null) {
                 // 👇 Aquí se arma el nombre completo antes de ponerlo en sesión
                 user.setNombre_completo(user.getNombres());
 
                 HttpSession session = request.getSession();
-
                 session.setAttribute("usuarioCompleto", user);
                 session.setAttribute("usuario", user.getNickname());
                 session.setAttribute("rol", user.getRol());
@@ -40,13 +39,17 @@ public class LoginServlet extends HttpServlet {
                 } else {
                     response.sendRedirect("welcome_usuario.jsp");
                 }
+
             } else {
-                response.sendRedirect("login.jsp?error=1");
+                // 👇 Si las credenciales son incorrectas, enviamos mensaje
+                request.setAttribute("mensaje", "Usuario o contraseña incorrectos.");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("login.jsp?error=2");
+            request.setAttribute("mensaje", "Ocurrió un error interno. Inténtalo nuevamente.");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 }

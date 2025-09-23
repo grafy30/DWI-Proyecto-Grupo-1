@@ -228,9 +228,9 @@
                 <!-- Miembro 4 -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2-4">
                     <div class="card border-0 shadow-sm text-center card-hover h-100">
-                        <img src="${pageContext.request.contextPath}/imagenes/Favian.png" class="card-img-top" alt="Arquitecto">
+                        <img src="${pageContext.request.contextPath}/imagenes/FOTO2.jpg" class="card-img-top" alt="Arquitecto">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold mb-1">Favia Vigo M.</h5>
+                            <h5 class="card-title fw-bold mb-1">Fabian Vigo M.</h5>
                             <p class="text-muted small mb-2">Ingeniero de Sistemas</p>
                             <div class="d-flex justify-content-center gap-2">
                                 <a href="#" class="text-primary"><i class="fab fa-linkedin"></i></a>
